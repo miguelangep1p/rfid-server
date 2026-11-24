@@ -1,0 +1,104 @@
+
+--- PAGINA 1 ---
+ 
+UNIVERSIDAD NACIONAL DE TRUJILLO 
+ Dr. Ing. Gómez Avila José 
+LABORATORIO 07:  
+Objetivo: Al finalizar el estudiante experimenta en un entorno controlado el manejo de servidor 
+remoto con los servicios emqx. 
+ 
+1. Explorar que el servicio de Docker esta activo, sino habilitarlo. 
+ 
+2. Ejecutamos el comando: sudo docker ps 
+Observaremos los contenedores activos en relación con la configuración pasada. 
+ 
+3. Revisamos el estado de los servicios. 
+ 
+
+
+--- PAGINA 2 ---
+ 
+UNIVERSIDAD NACIONAL DE TRUJILLO 
+ Dr. Ing. Gómez Avila José 
+4. Ingresamos a emqx para observar el funcionamiento del bróker. Utilizar por defecto el 
+usuario: admin, clave: public. Posterior cambiar la contraseña e ingresar a la sección de 
+Listeners 
+ 
+ 
+Es en este lugar donde se puede agregar las capacidades de conexión con diferentes medios. 
+5. Ubicarse en la sección de websocket  y ajustamos parámetros a gusto para habilitar el 
+servicio mqtt, finalmente dar clic en “Connect” 
+ 
+
+
+--- PAGINA 3 ---
+ 
+UNIVERSIDAD NACIONAL DE TRUJILLO 
+ Dr. Ing. Gómez Avila José 
+6. Realizar la suscripción y luego observamos la recepción 
+ 
+ 
+7. Ahora probamos el mqtt con el siguiente código en un servidor web, sea que 
+implementado en un contenedor o externo: 
+
+
+--- PAGINA 4 ---
+ 
+UNIVERSIDAD NACIONAL DE TRUJILLO 
+ Dr. Ing. Gómez Avila José 
+ 
+Para ejecutar el código necesitas modificar el puerto para personalizarlo.  La ejecución se 
+observará en consola para observar los intentos de conexión y envío de mensajes. 
+
+
+--- PAGINA 5 ---
+ 
+UNIVERSIDAD NACIONAL DE TRUJILLO 
+ Dr. Ing. Gómez Avila José 
+ 
+8. Ahora se puede reutilizar el código con suscripción. 
+ 
+ 
+9. Se puede ir personalizando el código para colocar estados. 
+
+
+--- PAGINA 6 ---
+ 
+UNIVERSIDAD NACIONAL DE TRUJILLO 
+ Dr. Ing. Gómez Avila José 
+ 
+ 
+10. Ahora realizaremos 2 archivos uno de publicación y otro de suscripción para probar el 
+envío de mensajes. Empezaremos con publicación, que se llamará “publicacion.php” 
+
+
+--- PAGINA 7 ---
+ 
+UNIVERSIDAD NACIONAL DE TRUJILLO 
+ Dr. Ing. Gómez Avila José 
+ 
+ 
+11. Ahora pasamos al suscriptor, que le llamaremos “suscritor.php” 
+ 
+ 
+
+
+--- PAGINA 8 ---
+ 
+UNIVERSIDAD NACIONAL DE TRUJILLO 
+ Dr. Ing. Gómez Avila José 
+ 
+Ahora comprobamos en el navegador si recepciona el mensaje del publicador. 
+ 
+12. Ahora revisamos el monitor de EMQX para saber si creó un topic y conecciones. 
+
+
+--- PAGINA 9 ---
+ 
+UNIVERSIDAD NACIONAL DE TRUJILLO 
+ Dr. Ing. Gómez Avila José 
+ 
+Actividades: 
+1. Implementación de la comunicación MQTT en el proyecto  y comunicaciones con el 
+dispositivo Arduino. 
+2. Considerar configuraciones para llevar a cabo el resultado. 

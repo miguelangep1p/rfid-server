@@ -1,0 +1,167 @@
+{
+  "run_id": "587e7f0c-62a9-4595-9b0c-ac5e194afcbf",
+  "date_local": "2026-10-24",
+  "started_at": "2026-10-24T18:42:07.826Z",
+  "timezone": "America/Lima",
+  "mode": "Real EMQX/PostgreSQL; serial simulado; sin participantes",
+  "cases": [
+    {
+      "lab": 8,
+      "id": "L8-01",
+      "description": "Roles PostgreSQL separados",
+      "status": "APROBADO",
+      "detail": [
+        {
+          "rolname": "iot_app",
+          "rolsuper": false
+        },
+        {
+          "rolname": "mqtt_reader",
+          "rolsuper": false
+        }
+      ]
+    },
+    {
+      "lab": 8,
+      "id": "L8-02",
+      "description": "Usuarios y reglas sin exponer credenciales",
+      "status": "APROBADO",
+      "detail": {
+        "users": [
+          {
+            "username": "bridge-entrada-01",
+            "active": true,
+            "is_superuser": false
+          },
+          {
+            "username": "observer",
+            "active": true,
+            "is_superuser": false
+          },
+          {
+            "username": "validator",
+            "active": true,
+            "is_superuser": false
+          }
+        ],
+        "acl": [
+          {
+            "username": "bridge-entrada-01",
+            "permission": "allow",
+            "action": "publish",
+            "topic": "asistencia/v1/dispositivos/entrada-01/estado"
+          },
+          {
+            "username": "bridge-entrada-01",
+            "permission": "allow",
+            "action": "publish",
+            "topic": "asistencia/v1/dispositivos/entrada-01/lecturas"
+          },
+          {
+            "username": "bridge-entrada-01",
+            "permission": "allow",
+            "action": "publish",
+            "topic": "asistencia/v1/dispositivos/entrada-01/resultados"
+          },
+          {
+            "username": "bridge-entrada-01",
+            "permission": "allow",
+            "action": "subscribe",
+            "topic": "asistencia/v1/dispositivos/entrada-01/comandos"
+          },
+          {
+            "username": "observer",
+            "permission": "allow",
+            "action": "subscribe",
+            "topic": "asistencia/v1/seguridad/avisos"
+          },
+          {
+            "username": "validator",
+            "permission": "allow",
+            "action": "publish",
+            "topic": "asistencia/v1/dispositivos/entrada-01/comandos"
+          },
+          {
+            "username": "validator",
+            "permission": "allow",
+            "action": "publish",
+            "topic": "asistencia/v1/seguridad/avisos"
+          },
+          {
+            "username": "validator",
+            "permission": "allow",
+            "action": "subscribe",
+            "topic": "asistencia/v1/dispositivos/entrada-01/lecturas"
+          },
+          {
+            "username": "validator",
+            "permission": "allow",
+            "action": "subscribe",
+            "topic": "asistencia/v1/dispositivos/entrada-01/resultados"
+          }
+        ]
+      }
+    },
+    {
+      "lab": 8,
+      "id": "L8-03",
+      "description": "Autenticación válida de observador",
+      "status": "APROBADO",
+      "detail": "CONNACK aceptado con credencial de observador."
+    },
+    {
+      "lab": 8,
+      "id": "L8-04",
+      "description": "Contraseña MQTT incorrecta",
+      "status": "APROBADO",
+      "detail": "Conexión rechazada; no se usó una tarjeta física."
+    },
+    {
+      "lab": 8,
+      "id": "L8-05",
+      "description": "Observador no publica comandos",
+      "status": "APROBADO",
+      "detail": "El bróker desconectó al cliente por publicación no autorizada."
+    },
+    {
+      "lab": 8,
+      "id": "L8-06",
+      "description": "Puente no publica comandos",
+      "status": "APROBADO",
+      "detail": "El bróker desconectó al cliente por publicación no autorizada."
+    },
+    {
+      "lab": 8,
+      "id": "L8-07",
+      "description": "Puente no se suscribe a otro dispositivo",
+      "status": "APROBADO",
+      "detail": "disconnect"
+    },
+    {
+      "lab": 8,
+      "id": "L8-08",
+      "description": "Límite temporal semiabierto y duración de 3 horas",
+      "status": "APROBADO",
+      "detail": {
+        "boundary_query": {
+          "at_start": true,
+          "at_end": false
+        },
+        "expired_decision": "DENEGADO",
+        "assistance_still_requested": true,
+        "real_three_hour_wait": false
+      }
+    },
+    {
+      "lab": 8,
+      "id": "L8-09",
+      "description": "Restricción SQL rechaza duración distinta de 3 horas",
+      "status": "APROBADO",
+      "detail": "CHECK violation 23514 esperado; no se creó permiso inválido."
+    }
+  ],
+  "traces": [],
+  "status": "APROBADO",
+  "cleanup": "Datos temporales de este UID de ensayo retirados.",
+  "finished_at": "2026-10-24T18:42:12.253Z"
+}

@@ -1,0 +1,40 @@
+{
+  "tarjetas": [
+    {
+      "_id": "tarjeta-ejemplo",
+      "uid": "A1B2C3D4",
+      "nombre": "Persona de prueba",
+      "activa": true,
+      "asistencia_solicitada": true
+    }
+  ],
+  "permisos": [
+    {
+      "_id": "permiso-ejemplo",
+      "tarjeta_id": "tarjeta-ejemplo",
+      "dispositivo_id": "entrada-01",
+      "relay": 1,
+      "valido_desde": "2026-10-24T09:00:00-05:00",
+      "valido_hasta": "2026-10-24T12:00:00-05:00",
+      "revocado_en": null
+    }
+  ],
+  "eventos": [
+    {
+      "_id": "00000000-0000-4000-8000-000000000001",
+      "uid_observado": "A1B2C3D4",
+      "permiso_id": "permiso-ejemplo",
+      "decision": "CONCEDIDO",
+      "asistencia_solicitada": true
+    }
+  ],
+  "notificaciones": [
+    {
+      "_id": "aviso-ejemplo",
+      "evento_id": "00000000-0000-4000-8000-000000000001",
+      "canal": "por_confirmar",
+      "estado": "pendiente"
+    }
+  ],
+  "_nota": "Alternativa académica no implementada; documentos y fechas ilustrativos, no resultados."
+}

@@ -1,0 +1,41 @@
+const {chromium,expect}=require('@playwright/test');
+const assert=require('node:assert/strict');
+(async()=>{
+ const browser=await chromium.launch({channel:'msedge',headless:true});
+ try{
+  const page=await browser.newPage();
+  const errors=[];page.on('pageerror',e=>errors.push(e.message));
+  await page.goto('http://127.0.0.1:3000');
+  await page.getByLabel('Agente responsable').fill('Verificacion de rastreo');
+  await page.getByLabel('Contraseña del panel').fill(process.env.PANEL_PASSWORD);
+  await page.getByRole('button',{name:'Ingresar',exact:true}).click();
+  await page.getByRole('button',{name:/Rastreo/}).click();
+  await expect(page.getByRole('heading',{name:'Rastreo simulado.'})).toBeVisible();
+  const mutations=[];
+  page.on('request',request=>{if(request.url().includes('/api/')&&!['GET','HEAD'].includes(request.method()))mutations.push(request.method()+' '+request.url())});
+  const reference=page.getByLabel('Solicitud de referencia para el rastreo');
+  const options=await reference.locator('option').evaluateAll(nodes=>nodes.map(n=>n.value));
+  if(options.length>1)await reference.selectOption(options[1]);
+  const marker=page.getByTestId('demo-agent-marker');
+  await page.getByRole('button',{name:'Iniciar simulación',exact:true}).click();
+  await expect.poll(async()=>Number(await marker.getAttribute('data-progress'))).toBeGreaterThan(0);
+  await page.getByRole('button',{name:'Pausar simulación',exact:true}).click();
+  const paused=await marker.getAttribute('data-progress');
+  await page.waitForTimeout(350);assert.equal(await marker.getAttribute('data-progress'),paused);
+  await page.getByLabel('Velocidad de demostración').selectOption('4');
+  await page.getByRole('button',{name:'Continuar simulación',exact:true}).click();
+  await expect.poll(async()=>Number(await marker.getAttribute('data-progress'))).toBeGreaterThan(Number(paused));
+  await page.getByRole('button',{name:'Completar recorrido de prueba',exact:true}).click();
+  await expect(marker).toHaveAttribute('data-progress','100');
+  await expect(page.getByText('Recorrido de demostración completado',{exact:true})).toBeVisible();
+  assert.deepEqual(mutations,[],'El rastreo no debe enviar operaciones de escritura');
+  await page.getByRole('button',{name:'Reiniciar simulación',exact:true}).click();
+  await expect(marker).toHaveAttribute('data-progress','0');
+  await page.screenshot({path:'test-results/rastreo-desktop.png',fullPage:true});
+  await page.setViewportSize({width:390,height:844});
+  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'Sin desbordamiento horizontal en móvil');
+  await page.screenshot({path:'test-results/rastreo-mobile.png',fullPage:true});
+  assert.deepEqual(errors,[]);
+  console.log('Rastreo: controles, pausa, reinicio, móvil y solicitudes sin cambios verificados.');
+ }finally{await browser.close()}
+})().catch(e=>{console.error(e);process.exitCode=1});

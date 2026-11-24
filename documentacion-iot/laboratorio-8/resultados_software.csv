@@ -1,0 +1,10 @@
+﻿ID,Fecha,Comprobacion,Resultado,Tipo,Evidencia
+L8-01,2026-10-24,Roles PostgreSQL separados,APROBADO,Software; serial simulado,evidencias/verificacion-software.json
+L8-02,2026-10-24,Usuarios y reglas sin exponer credenciales,APROBADO,Software; serial simulado,evidencias/verificacion-software.json
+L8-03,2026-10-24,Autenticación válida de observador,APROBADO,Software; serial simulado,evidencias/verificacion-software.json
+L8-04,2026-10-24,Contraseña MQTT incorrecta,APROBADO,Software; serial simulado,evidencias/verificacion-software.json
+L8-05,2026-10-24,Observador no publica comandos,APROBADO,Software; serial simulado,evidencias/verificacion-software.json
+L8-06,2026-10-24,Puente no publica comandos,APROBADO,Software; serial simulado,evidencias/verificacion-software.json
+L8-07,2026-10-24,Puente no se suscribe a otro dispositivo,APROBADO,Software; serial simulado,evidencias/verificacion-software.json
+L8-08,2026-10-24,Límite temporal semiabierto y duración de 3 horas,APROBADO,Software; serial simulado,evidencias/verificacion-software.json
+L8-09,2026-10-24,Restricción SQL rechaza duración distinta de 3 horas,APROBADO,Software; serial simulado,evidencias/verificacion-software.json

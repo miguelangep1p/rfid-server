@@ -1,0 +1,11 @@
+node_modules/
+.next/
+.env*
+!.env.example
+*.db
+*.db.tmp
+test-results/
+*.generated.conf
+*.generated.sql
+firmware/.arduino-user/
+firmware/backups/

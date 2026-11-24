@@ -1,0 +1,46 @@
+{
+  "name": "rfid-server",
+  "version": "1.0.0",
+  "main": "server.js",
+  "dependencies": {
+    "@serialport/parser-readline": "^12.0.0",
+    "express": "^4.18.2",
+    "mqtt": "^5.16.1",
+    "next": "^16.3.5",
+    "pg": "^8.23.1",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "serialport": "^12.0.0",
+    "sql.js": "^1.14.2"
+  },
+  "scripts": {
+    "dev": "node --env-file=documentacion-iot/laboratorio-6/.env.local documentacion-iot/laboratorio-7/panel-server.cjs --main --dev",
+    "build": "next build",
+    "start": "node --env-file=documentacion-iot/laboratorio-6/.env.local documentacion-iot/laboratorio-7/panel-server.cjs --main",
+    "dev:access": "node server.js --dev",
+    "start:access": "node server.js",
+    "test": "node --test tests/integration.cjs tests/assistance.cjs tests/whatsapp.cjs tests/request-view.cjs tests/node-status.cjs tests/tracking-demo.cjs",
+    "test:ui": "playwright test",
+    "iot:setup": "node documentacion-iot/laboratorio-6/setup.cjs",
+    "iot:up": "docker compose --env-file documentacion-iot/laboratorio-6/.env.local -f documentacion-iot/laboratorio-6/compose.yaml up -d --wait",
+    "iot:down": "docker compose --env-file documentacion-iot/laboratorio-6/.env.local -f documentacion-iot/laboratorio-6/compose.yaml down",
+    "iot:bridge": "node --env-file=documentacion-iot/laboratorio-6/.env.local documentacion-iot/laboratorio-7/src/bridge.cjs",
+    "iot:validator": "node --env-file=documentacion-iot/laboratorio-6/.env.local documentacion-iot/laboratorio-7/src/validator.cjs",
+    "iot:observer": "node --env-file=documentacion-iot/laboratorio-6/.env.local documentacion-iot/laboratorio-7/src/observer.cjs",
+    "iot:card": "node --env-file=documentacion-iot/laboratorio-6/.env.local documentacion-iot/laboratorio-7/src/create-card.cjs",
+    "test:iot": "node --test tests/iot*.cjs",
+    "test:iot:live": "node --env-file=documentacion-iot/laboratorio-6/.env.local documentacion-iot/laboratorio-7/test-live.cjs",
+    "iot:publish": "node --env-file=documentacion-iot/laboratorio-6/.env.local documentacion-iot/laboratorio-7/publicacion.cjs",
+    "iot:subscribe": "node --env-file=documentacion-iot/laboratorio-6/.env.local documentacion-iot/laboratorio-7/suscripcion.cjs",
+    "iot:verify": "node documentacion-iot/verificar-laboratorios.cjs",
+    "iot:panel:setup": "node documentacion-iot/laboratorio-7/panel-setup.cjs",
+    "iot:panel": "node --env-file=documentacion-iot/laboratorio-6/.env.local documentacion-iot/laboratorio-7/panel-server.cjs --dev",
+    "test:iot:panel": "node --env-file=documentacion-iot/laboratorio-6/.env.local documentacion-iot/laboratorio-7/test-panel.cjs",
+    "test:assistance": "node --test tests/assistance.cjs",
+    "test:whatsapp": "node --test tests/whatsapp.cjs",
+    "test:whatsapp:live": "node --env-file=documentacion-iot/laboratorio-6/.env.local documentacion-iot/laboratorio-7/test-whatsapp.cjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0"
+  }
+}

@@ -1,0 +1,46 @@
+name: asistencia-iot-labs
+services:
+  postgres:
+    image: postgres:17.6@sha256:00bc86618629af00d2937fdc5a5d63db3ff8450acf52f0636ec813c7f4902929
+    environment:
+      POSTGRES_USER: iot_owner
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Ejecutar npm run iot:setup}
+      POSTGRES_DB: asistencia
+    ports:
+      - "127.0.0.1:55432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./infra/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+      - ./infra/bootstrap.generated.sql:/docker-entrypoint-initdb.d/02-roles.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U iot_owner -d asistencia"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+  emqx:
+    image: emqx/emqx-enterprise:6.3.2@sha256:96dd9eac72b1744ea995a30ee8fa16c8a5c3e0a3cd2bafc9749aba9a63c0b02a
+    hostname: broker.asistencia.local
+    environment:
+      EMQX_NODE_NAME: emqx@broker.asistencia.local
+      EMQX_NODE__COOKIE: ${EMQX_NODE_COOKIE:?Ejecutar npm run iot:setup}
+      EMQX_DASHBOARD__DEFAULT_PASSWORD: ${EMQX_DASHBOARD_PASSWORD:?Ejecutar npm run iot:setup}
+    ports:
+      - "127.0.0.1:1883:1883"
+      - "127.0.0.1:18083:18083"
+      - "127.0.0.1:8083:8083"
+    volumes:
+      - emqx_data:/opt/emqx/data
+      - emqx_log:/opt/emqx/log
+      - ./emqx.generated.conf:/opt/emqx/etc/base.hocon:ro
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "/opt/emqx/bin/emqx", "ctl", "status"]
+      interval: 10s
+      timeout: 25s
+      retries: 10
+volumes:
+  postgres_data:
+  emqx_data:
+  emqx_log:

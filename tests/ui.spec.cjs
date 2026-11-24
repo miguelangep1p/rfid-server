@@ -1,0 +1,35 @@
+const { test, expect } = require('@playwright/test');
+
+test('gestión de usuarios y panel adaptable', async ({ page }) => {
+  const errors = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.goto('/acceso');
+  await expect(page.getByRole('heading', { name: 'Todo bajo control.' })).toBeVisible();
+  await expect(page.getByText('En tiempo real', { exact: true })).toBeVisible();
+  for (const button of await page.getByRole('button', { name: 'Abrir puerta' }).all()) await expect(button).toBeDisabled();
+  await page.getByRole('button', { name: 'Agregar usuario' }).click();
+  await page.getByLabel('Nombre', { exact: true }).fill('Persona de prueba');
+  await page.getByLabel('UID de la tarjeta').fill('DDAABB11');
+  await page.getByRole('button', { name: 'Guardar acceso' }).click();
+  await expect(page.getByRole('dialog')).not.toBeVisible();
+  await page.getByRole('button', { name: 'Usuarios' }).click();
+  const row = page.getByRole('row').filter({ hasText: 'DDAABB11' });
+  await expect(row).toContainText('Persona de prueba');
+  await page.getByRole('button', { name: 'Pase temporal' }).click();
+  await page.getByLabel('Nombre', { exact: true }).fill('Visita de prueba');
+  await page.getByLabel('UID de la tarjeta').fill('DDAABB22');
+  await page.getByLabel('Duración en horas').fill('2');
+  await page.getByRole('button', { name: 'Guardar acceso' }).click();
+  await expect(page.getByRole('dialog')).not.toBeVisible();
+  await expect(page.getByRole('row').filter({ hasText: 'DDAABB22' })).toContainText('Visita de prueba');
+  await row.getByRole('button', { name: 'Revocar' }).click();
+  await page.getByRole('button', { name: 'Revocar acceso', exact: true }).click();
+  await expect(row).toHaveCount(0);
+  await page.getByRole('button', { name: 'Actividad' }).click();
+  await page.screenshot({ path: 'test-results/panel-desktop.png', fullPage: true });
+  await page.setViewportSize({ width: 390, height: 844 });
+  await expect(page.getByRole('heading', { name: 'Todo bajo control.' })).toBeVisible();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+  await page.screenshot({ path: 'test-results/panel-mobile.png', fullPage: true });
+  expect(errors).toEqual([]);
+});

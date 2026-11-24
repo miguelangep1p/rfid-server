@@ -1,0 +1,18 @@
+﻿ID,Fecha,Comprobacion,Resultado,Tipo,Evidencia
+L7-01,2026-10-24,MQTT sobre WebSocket en listener 8083,APROBADO,Software; serial simulado,evidencias/verificacion-software.json
+L7-02,2026-10-24,"Flujo serial simulado a MQTT, decisión y aviso",APROBADO,Software; serial simulado,evidencias/verificacion-software.json
+L7-03,2026-10-24,Registro de comando simulado para relé 2,APROBADO,Software; serial simulado,evidencias/verificacion-software.json
+L7-04,2026-10-24,Evento duplicado no crea nueva orden,APROBADO,Software; serial simulado,evidencias/verificacion-software.json
+L7-05,2026-10-24,Publicador independiente y tarjeta desconocida sin comando,APROBADO,Software; serial simulado,evidencias/verificacion-software.json
+L7-06,2026-10-24,Comando vencido rechazado por protocolo,APROBADO,Software; serial simulado,evidencias/verificacion-software.json
+L7-07,2026-10-24,Registro del extremo serial simulado,APROBADO,Software; serial simulado,evidencias/verificacion-software.json
+P7-01,2026-10-24,API de datos exige sesión,APROBADO,Software; serial simulado,evidencias/verificacion-software.json
+P7-02,2026-10-24,Sesión y estado del puente en Next.js,APROBADO,Software; serial simulado,evidencias/verificacion-software.json
+P7-03,2026-10-24,Operaciones rechazan origen distinto al panel local,APROBADO,Software; serial simulado,evidencias/verificacion-software.json
+P7-04,2026-10-24,Formulario crea solicitud de asistencia y permiso de tres horas desde inicio explícito,APROBADO,Software; serial simulado,evidencias/verificacion-software.json
+P7-05,2026-10-24,"Lectura desde la web recorre puente, MQTT y validación y vuelve al historial",APROBADO,Software; serial simulado,evidencias/verificacion-software.json
+P7-06,2026-10-24,Aviso visible y control de sonido habilitado; audibilidad física no medida,APROBADO,Software; serial simulado,evidencias/verificacion-software.json
+P7-07,2026-10-24,Vista móvil sin desbordamiento horizontal,APROBADO,Software; serial simulado,evidencias/verificacion-software.json
+P7-08,2026-10-24,Confirmación de recepción persiste sin atribuir asistencia realizada,APROBADO,Software; serial simulado,evidencias/verificacion-software.json
+P7-09,2026-10-24,"Orden manual autenticada ABRIR,2 llega al puente simulado",APROBADO,Software; serial simulado,evidencias/verificacion-software.json
+P7-10,2026-10-24,Revocación desde API conserva el historial y deshabilita la credencial,APROBADO,Software; serial simulado,evidencias/verificacion-software.json

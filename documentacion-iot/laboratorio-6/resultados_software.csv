@@ -1,0 +1,6 @@
+﻿ID,Fecha,Comprobacion,Resultado,Tipo,Evidencia
+L6-01,2026-10-24,Docker y motor Linux,APROBADO,Software; serial simulado,evidencias/verificacion-software.json
+L6-02,2026-10-24,Contenedor hello-world,APROBADO,Software; serial simulado,evidencias/verificacion-software.json
+L6-03,2026-10-24,Servicios y versión EMQX,APROBADO,Software; serial simulado,evidencias/verificacion-software.json
+L6-04,2026-10-24,PostgreSQL y esquema aplicado,APROBADO,Software; serial simulado,evidencias/verificacion-software.json
+L6-05,2026-10-24,Validación del protocolo sin hardware,APROBADO,Software; serial simulado,evidencias/verificacion-software.json

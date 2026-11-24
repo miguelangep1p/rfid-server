@@ -1,0 +1,298 @@
+UNIVERSIDAD NACIONAL DE TRUJILLO
+FACULTAD DE INGENIERÍA
+ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS
+
+“Sistema IoT de control de acceso mediante RFID/NFC con cerradura electrónica, validación centralizada y aplicación móvil para gestión de accesos temporales ”
+
+MATERIA:     Internet de las Cosas
+DOCENTE:    Dr Ing. Gómez Avila José
+INTEGRANTES:
+Cabanillas Urbina Miguel Angel
+Flores Rodríguez Marcelo Raúl
+Moreno Aguilar D'alessandro Zahit
+Rodriguez Blas Elva
+Villena Torres, Bruno Julio Cesar
+
+TRUJILLO - PERÚ 
+2026
+
+
+ÍNDICE
+1. REALIDAD PROBLEMÁTICA
+1.1. Antecedentes
+1.1.1. Internacionales
+1.1.2. Nacionales
+1.1.3. Locales
+1.2. Descripción del problema
+1.3. Hipótesis
+1.4. Justificación
+1.4.1. Justificación Teórica
+1.4.2. Justificación Práctica
+1.4.3. Justificación Ambiental
+1.4.4. Justificación Económica
+1.5. Objetivos
+1.5.1. Objetivo General
+1.5.2. Objetivos Específicos
+1.6. Población Beneficiada
+
+2. SOLUCIÓN TECNOLÓGICA ACTUAL
+2.1. Procesos y Procedimientos Encontrados
+2.2. Personal Responsable
+2.3. Tecnología Actual Implicada
+
+3. SOLUCIÓN TECNOLÓGICA PROPUESTA
+3.1. Esquema Explicativo Propuesto
+3.2. Montaje y Lectura RFID/NFC en Arduino
+3.3. Validación en Servidor y Aplicación Móvil
+3.4. Procesos y Procedimientos
+3.5. Personal Responsable
+3.6. Tecnología Propuesta (Hardware / Software)
+3.7. Proveedores Propuestos
+3.8. Presupuesto de Hardware, Software y RRHH
+3.9. Calificación de Innovación
+3.10. Comparativa de Sensores y/o Elementos Electrónicos
+4. REFERENCIAS Y ANTECEDENTES BIBLIOGRÁFICOS
+
+
+Realidad Problemática
+
+Antecedentes
+La integración de tecnologías RFID/NFC, microcontroladores y sistemas móviles en soluciones de control de acceso ha permitido mejorar la seguridad, automatizar la validación de usuarios y generar registros cuantificables de los accesos, tal como lo evidencian diversos antecedentes internacionales, nacionales y locales. 
+Internacionales 
+“Design of an Arduino-Based Intelligent Access Control System with Priority Levels” (2025)
+Proyecto que diseñó y validó un sistema inteligente de control de acceso de bajo costo basado en Arduino Mega. Integró RFID, reconocimiento de huella dactilar, PIN mediante teclado, sensor PIR, pantalla LCD y actuadores para la puerta. Además, implementó una arquitectura de autenticación multifactor y reglas de prioridad para restringir determinadas acciones según el nivel de usuario.
+Logro: Implementación de un sistema de control de acceso con autenticación multifactor y políticas de acceso basadas en prioridades.
+Indicador: Integración de RFID + huella dactilar + PIN, con límites de intentos, períodos de bloqueo y reglas de privilegios.
+"Diseño e implementación de un prototipo con tecnología RFID en un sistema de control por aplicación móvil para el manejo de acceso y seguridad de los laboratorios especializados" (Peñaranda Vergel y Peñaranda Vergel, 2016, Colombia)
+En la Universidad Francisco de Paula Santander los autores diseñaron un prototipo de control de acceso con tarjetas RFID para los laboratorios de electricidad y electrónica, controlado desde una aplicación Android y construido sobre Arduino.
+Logro: Sistema de control de acceso operado de forma remota desde una aplicación móvil.
+Indicador: Integración de RFID + Arduino + app Android, con apertura gestionada desde el celular del responsable.
+
+Nacionales
+“Diseño de un prototipo de control de acceso basado en tecnología biométrica de huella dactilar, lector de barras y RFID” (2020, UTP Lima )
+Investigación desarrollada en Lima, Perú, en la Universidad Tecnológica del Perú (UTP), que propone un prototipo de control de acceso para la identificación de personas y vehículos mediante la integración de huella dactilar, RFID y lector de código de barras.
+Logro: Desarrollo de un prototipo automatizado para el control e identificación del personal y vehículos, integrando tecnologías biométricas y de identificación electrónica.
+Indicador: Integración de huella dactilar + RFID + código de barras, permitiendo verificar la identidad del personal y registrar el acceso de personas y vehículos.
+"Diseño de un sistema de acceso vehicular a la PUCP basado en tecnología RFID y detección de placas vehiculares" (Gomero Vásquez, 2017, Lima)
+El autor propuso un sistema que combina RFID con reconocimiento de placas vehiculares, integrado en una plataforma Java con base de datos y una interfaz para el personal de seguridad.
+Logro: Validación cruzada entre tarjeta RFID y placa detectada para autorizar el ingreso.
+Indicador: Margen de error menor al 7% en la detección de placas durante las pruebas.
+
+Locales
+“Sistema basado en RFID para mejorar la seguridad de acceso a las oficinas de la Gerencia Regional de Transportes y Comunicaciones – La Libertad” (2019)
+Proyecto que implementó un sistema de control de acceso basado en tecnología RFID en la Gerencia Regional de Transportes y Comunicaciones de La Libertad. La investigación estuvo orientada a mejorar la seguridad de las oficinas y controlar el acceso durante las horas no laborables en áreas restringidas.
+Logro: Implementación de un sistema RFID orientado a mejorar el control y seguridad del acceso a oficinas restringidas.
+Indicador: Evaluación mediante indicadores de observación utilizando mediciones pretest y postest y análisis estadístico con SPSS
+"Sistema web móvil de gestión de accesos del personal de la empresa TAL S.A. utilizando ICONIX Scrumban y tecnología RFID" (Azabache Medina y Caruajulca Sánchez, 2019, Trujillo)
+Desarrollado en la Universidad Privada Antenor Orrego, gestiona el acceso del personal de TAL S.A. y genera reportes con información inmediata sobre los accesos registrados.
+Logro: Sistema web-móvil de gestión de accesos con generación automática de reportes.
+Indicador: Registro y consulta inmediata de cada acceso del personal desde la plataforma web.
+Descripción del problema
+Hipótesis
+Justificación
+JUSTIFICACIÓN TEÓRICA
+El proyecto aplica conceptos de Internet de las Cosas (identificación por radiofrecuencia, actuadores y validación centralizada) a un caso de control de acceso físico. Los antecedentes revisados muestran que RFID combinado con una aplicación móvil ya funciona en laboratorios, control vehicular y gestión de personal, lo que da una base técnica probada para el esquema propuesto en este informe.
+JUSTIFICACIÓN PRÁCTICA
+Hoy el acceso depende de una llave física que el propietario presta o duplica según cada solicitud, sin registro de quién entró ni a qué hora. Un sistema RFID/NFC con cerradura electrónica y app móvil permite otorgar y revocar accesos temporales sin duplicar llaves, y deja un historial consultable de cada ingreso.
+JUSTIFICACIÓN AMBIENTAL
+La cerradura electrónica con tarjeta o tag NFC elimina la fabricación y reposición de llaves metálicas cada vez que se pierden o duplican. El registro digital de accesos reemplaza los cuadernos o formatos impresos que se usan hoy para anotar visitas, reduciendo el consumo de papel.
+JUSTIFICACIÓN ECONÓMICA
+Perder o duplicar llaves genera un costo recurrente y en algunos casos obliga a cambiar la cerradura completa. Una tarjeta RFID o un tag NFC cuesta menos que reemplazar una cerradura mecánica, y revocar el acceso de una tarjeta perdida no exige cambiar el mecanismo físico de la puerta.
+Objetivo General
+Diseñar e implementar un sistema IoT de control de acceso mediante tecnología RFID/NFC, integrado con una cerradura electrónica, un módulo de validación centralizada y una aplicación móvil, que permita otorgar, revocar y registrar accesos temporales de forma automatizada.
+Objetivos Específicos
+
+Población Beneficiada
+Propietario o administrador del inmueble: gestiona y autoriza accesos desde la app en vez de coordinar la entrega física de llaves.
+Personal de vigilancia (cuando existe): cuenta con un registro digital de ingresos y egresos como respaldo de su supervisión.
+Visitantes con acceso temporal (familiares, proveedores, personal externo): ingresan con una tarjeta o tag NFC válido solo durante el periodo autorizado.
+Solución Tecnológica Actual
+
+Gráfico 1. Esquema del proceso actual de control de acceso
+PROCESOS Y PROCEDIMIENTOS ENCONTRADOS
+Solicitud de ingreso: el visitante pide acceso verbalmente o lo coordina antes con el propietario.
+Autorización: el propietario decide si entrega la llave o autoriza el ingreso.
+Entrega o uso de la llave: el visitante recibe una llave duplicada o usa la que ya tiene.
+Apertura de la puerta: la cerradura mecánica se abre y cierra a mano, sin registro de hora.
+Supervisión: si hay vigilante, observa el ingreso y la salida; la cámara, cuando existe, graba sin alertar en tiempo real.
+Manejo de incidencias: ante un problema, el vigilante o el visitante llaman por teléfono al propietario.
+PERSONAL RESPONSABLE
+Propietario: Decide quién recibe una llave, coordina la duplicación y autoriza los ingresos.
+Vigilante (cuando existe): Supervisa el ingreso.
+Visitante: Porta la llave física o se identifica verbalmente para poder ingresar.
+TECNOLOGÍA ACTUAL IMPLICADA
+Actualmente, el control de acceso se realiza mediante tecnologías y mecanismos convencionales, donde la cerradura mecánica permite bloquear y desbloquear la puerta mediante una llave física como medio de autenticación. En algunos casos hay cámaras de seguridad que proporcionan vigilancia visual del ingreso y salida de personas. Asimismo, se utiliza un teléfono para mantener comunicación con el responsable ante alguna incidencia. Si bien existen soluciones comerciales y sistemas implementados que incorporan tecnologías como RFID/NFC, cerraduras electrónicas, estos sistemas no necesariamente se encuentran adaptados a las necesidades, infraestructura y procedimientos específicos.
+Solución Tecnológica Propuesta
+ESQUEMA EXPLICATIVO PROPUESTO
+El sistema tiene dos zonas. En la puerta se instala un nodo con Arduino, el lector MFRC522, el reloj DS3231, un módulo relé y la cerradura eléctrica. En la nube (o en un servidor local) se ejecuta la API, la base de datos y el intermediario MQTT que atienden al nodo y a las aplicaciones móviles. 
+
+El proyecto plantea el desarrollo de un sistema de control de acceso  que combina dos módulos complementarios. Por un lado, un Arduino controla el lector MFRC522 y el reloj DS3231 instalados en la puerta, formando el nodo que identifica al usuario y toma la hora exacta de cada evento. Por otro lado, un servidor con API REST y base de datos válida cada credencial, guarda la bitácora de accesos y atiende a la aplicación móvil del encargado, que permite gestionar usuarios, abrir la puerta de manera remota y generar pases temporales para invitados.
+Cuando el sistema no tiene conexión a internet, el nodo de la puerta valida con una lista local de credenciales almacenada en su memoria y encola los eventos con la hora del DS3231 para sincronizarlos apenas se recupera la conexión, garantizando que el laboratorio nunca quede sin control de acceso.
+MONTAJE Y LECTURA RFID/NFC EN ARDUINO
+Paso 1. Definición de pines y componentes. El montaje inicia con la asignación de pines en el Arduino. El lector MFRC522 se conecta por el bus SPI (pines SDA/SS, SCK, MOSI, MISO y RST); el reloj DS3231 se conecta por el bus I²C (pines SDA y SCL); el módulo relé se conecta a un pin digital de salida, y el LED y el buzzer se ubican en pines digitales adicionales como indicadores de resultado.
+Paso 2. Configuración del lector MFRC522. Se inicializa la comunicación SPI y se carga la biblioteca MFRC522.h, que permite detectar la presencia de una tarjeta o llavero dentro del rango de lectura (aproximadamente 5 a 7 cm) y activar el proceso de lectura del identificador único.
+Paso 3. Lectura del UID. Cuando el usuario acerca su tarjeta o llavero al lector, el Arduino captura el identificador único (UID) de 4 u 7 bytes asignado de fábrica a esa credencial.
+Paso 4. Consulta de fecha y hora. De manera simultánea, el Arduino consulta al módulo DS3231 mediante la biblioteca RTClib para obtener la fecha y hora exactas del evento, incluso si el sistema no tiene conexión a internet en ese momento.
+Paso 5. Envío del evento al servidor. El Arduino arma un paquete con el UID leído, el identificador de la puerta y la marca de tiempo del DS3231, y lo envía al servidor mediante Wi-Fi por HTTPS (o lo encola localmente si no hay conexión).
+Paso 6. Activación de la cerradura. Según la respuesta del servidor (o de la lista local), el Arduino energiza el relé durante unos segundos para liberar la cerradura eléctrica, enciende el LED verde y emite un beep corto si el acceso es autorizado, o enciende el LED rojo y un beep largo si es denegado.
+VALIDACIÓN EN SERVIDOR Y APLICACIÓN MÓVIL
+Paso 1. Recepción de la solicitud. La API REST del servidor recibe el evento enviado por el nodo de la puerta, con el UID, la puerta y la marca de tiempo.
+Paso 2. Verificación de la credencial. El servidor consulta la base de datos para comprobar si el UID corresponde a un usuario registrado y si su credencial está activa.
+Paso 3. Verificación de horario y vigencia. Se valida que la puerta consultada esté permitida para ese usuario y que el momento del intento se encuentre dentro del horario autorizado o de la vigencia de un pase temporal.
+Paso 4. Registro en bitácora. El resultado (autorizado o denegado), junto con el usuario, la puerta y la hora, se guarda en la base de datos para consultas y reportes posteriores.
+Paso 5. Notificación push. Si el intento es denegado o se detectan varios intentos fallidos seguidos, el servidor envía una notificación push al encargado mediante Firebase Cloud Messaging.
+Paso 6. Gestión desde la aplicación móvil. El encargado utiliza la aplicación para registrar nuevos usuarios, revocar credenciales perdidas, abrir la puerta de manera remota y generar paces temporales con fecha y hora de vigencia para invitados.
+PROCESOS Y PROCEDIMIENTOS
+1. Proceso de lectura y validación de credencial RFID/NFC
+Descripción: Permite identificar a la persona que solicita el ingreso y decidir si el acceso se concede.
+Entrada: UID leído por el lector MFRC522.
+Procedimiento:
+·       El usuario acerca su tarjeta o llavero al lector MFRC522.
+·       El Arduino captura el UID y la hora exacta del DS3231.
+·       El evento se envía al servidor, que compara el UID contra la base de usuarios y permisos.
+·       El servidor responde autorizado o denegado según la vigencia y el horario del usuario.
+Salida: Apertura de la cerradura (si es autorizado) o cerradura sin activar (si es denegado).
+2. Proceso de registro de bitácora de accesos
+Descripción: Garantiza que todo evento de acceso quede almacenado para su consulta posterior.
+Entrada: Resultado de la validación (autorizado o denegado) con usuario, puerta y hora.
+Procedimiento:
+·       El servidor recibe el resultado de la validación.
+·       Guarda el evento en la base de datos con usuario, puerta, fecha, hora y resultado.
+·       El encargado puede filtrar la bitácora por usuario, puerta o rango de fechas desde la app.
+Salida: Reporte exportable de accesos en formato CSV o PDF.
+3. Proceso de apertura remota desde la aplicación móvil
+Descripción: Permite al encargado abrir la puerta sin estar físicamente presente.
+Entrada: Orden de apertura enviada desde la aplicación móvil.
+Procedimiento:
+·       El encargado pulsa “Abrir” en la aplicación, autenticandose previamente.
+·       El servidor publica la orden en el canal MQTT correspondiente a esa puerta.
+·       El nodo de la puerta valida la orden y activa el relé para liberar la cerradura.
+·       El evento se registra en la bitácora con el usuario que emitió la orden.
+Salida: Apertura remota de la puerta y registro del evento en la bitácora.
+4. Proceso de generación y uso de pases temporales para invitados
+Descripción: Permite dar acceso limitado en el tiempo a un proveedor, ponente o visitante sin crearle una credencial permanente.
+Entrada: Datos del invitado, puerta y periodo de vigencia definidos por el encargado.
+Procedimiento:
+·       El encargado crea un pase con nombre del invitado, puerta y fecha/hora de inicio y fin.
+·       El servidor genera un enlace o código QR asociado a ese pase.
+·       Dentro de la vigencia, el invitado usa el enlace o el código para solicitar la apertura.
+·       Fuera de la vigencia, el pase se rechaza automáticamente y puede revocarse antes de su vencimiento.
+Salida: Acceso temporal controlado, sin necesidad de entregar una tarjeta física permanente.
+5. Proceso de funcionamiento en modo sin conexión
+Descripción: Mantiene operativo el control de acceso aunque el laboratorio se quede sin internet.
+Entrada: Evento de lectura RFID sin respuesta del servidor.
+Procedimiento:
+·       El Arduino intenta comunicarse con el servidor y no recibe respuesta.
+·       Valida el UID contra la lista local de credenciales autorizadas guardada en su memoria.
+·       Encola el evento junto con la hora del DS3231.
+·       Al recuperar la conexión, envía la cola de eventos al servidor y actualiza su lista local.
+Salida: Continuidad del control de acceso incluso sin conexión a internet.
+Personal Responsable
+Tabla 1: Personal responsable del sistema IoT 
+Tecnología Propuesta (Hardware / Software)
+Hardware
+Tabla 2: Tecnología propuesta – Hardware 
+Software
+Tabla 3: Tecnología propuesta – Software 
+Proveedores Propuestos
+Tabla 4: Proveedores propuestos 
+Presupuesto de Hardware, Software y RRHH
+Hardware
+Tabla 5: Presupuesto de Hardware 
+Software / Servicios
+Tabla 6: Presupuesto de Software y Servicios 
+Recursos Humanos (RRHH)
+Tabla 7: Presupuesto de Recursos Humanos 
+Presupuesto total estimado: hardware S/ 225.00 + servicios S/ 25.00/mes + RRHH S/ 1,575.00 ≈ S/ 1,825.00 (inversión inicial, sin considerar meses adicionales de hosting).
+Calificación de Innovación
+Se evalúan al menos 8 características de innovación del sistema propuesto frente a la solución actual (llave física):
+Tabla 8: Características de innovación del sistema propuesto 
+Comparativa de Sensores y/o Elementos Electrónicos
+Comparación de opciones de lectura de credencial evaluadas para el nodo de la puerta:
+Tabla 9: Comparativa de sensores y elementos electrónicos 
+Se selecciona el módulo MFRC522 (13.56 MHz) por su balance entre costo, seguridad y compatibilidad con tags NFC y con teléfonos móviles, frente a las alternativas evaluadas.
+3 antecedentes (1 internacional, 1 nacional y 1 local); solución tecnológica propuesta: personal responsable, tecnología propuesta HW/SW, proveedores propuestos y presupuesto de hardware, software y RRHH; calificación de innovación con mínimo 8 características; comparativa de sensores y/o elementos electrónicos.
+
+
+Peñaranda Vergel, J. A., y Peñaranda Vergel, L. A. (2016). Diseño e implementación de un prototipo con tecnología RFID en un sistema de control por aplicación móvil para el manejo de acceso y seguridad de los laboratorios especializados del departamento de electricidad y electrónica utilizando tarjetas Smart Card [Trabajo de grado, Universidad Francisco de Paula Santander]. https://catalogobiblioteca.ufps.edu.co/descargas/tesis/1160011-1160172.pdf 
+
+Rusten-Andrei, I., Bizon, N., & Dragusin, S.-A. (2025). Design of an Arduino-based intelligent access control system with priority levels. Journal of Electrical Engineering, Electronics, Control and Computer Science, 11(3). 
+https://jeeeccs.net/index.php/journal/article/view/400/299 
+
+Gomero Vásquez, L. E. (2017). Diseño de un sistema de acceso vehicular a la PUCP basado en tecnología RFID y detección de placas vehiculares [Tesis de licenciatura, Pontificia Universidad Católica del Perú]. Repositorio PUCP. https://repositorio.pucp.edu.pe/index/handle/123456789/163652 
+
+Chunga Aguilar, R. A., & De la Cruz Infantes, J. C. (2019). Sistema basado en RFID para mejorar la seguridad de acceso a las oficinas de la Gerencia Regional de Transportes y Comunicaciones - La Libertad, 2019 [Tesis de pregrado, Universidad César Vallejo]. Repositorio Institucional UCV. https://hdl.handle.net/20.500.12692/46898
+
+ Felix Perez, K. P., y Alcantara Avalos, H. D. (2023). Sistema de monitoreo para el control de asistencia con RFID y Arduino en la I.E. Tercer Cielo, Trujillo, 2022 [Tesis de pregrado, Universidad César Vallejo]. Repositorio Institucional UCV. https://repositorio.pucp.edu.pe/items/e661fe39-d2be-4d6f-a04e-3240a9f1abac 
+
+Azabache Medina, B. J., & Caruajulca Sánchez, J. L. D. (2019). Sistema web móvil de gestión de accesos del personal de la empresa TAL S.A utilizando ICONIX Scrumban y tecnología RFID [Tesis de grado, Universidad Privada Antenor Orrego]. Repositorio Institucional UPAO. 
+
+Antecedente Internacional
+Peñaranda Vergel, J. A., y Peñaranda Vergel, L. A. (2016). Diseño e implementación de un prototipo con tecnología RFID en un sistema de control por aplicación móvil para el manejo de acceso y seguridad de los laboratorios especializados del departamento de electricidad y electrónica utilizando tarjetas Smart Card [Trabajo de grado, Universidad Francisco de Paula Santander]. https://catalogobiblioteca.ufps.edu.co/descargas/tesis/1160011-1160172.pdf
+
+Antecedente Nacional
+Gomero Vásquez, L. E. (2017). Diseño de un sistema de acceso vehicular a la PUCP basado en tecnología RFID y detección de placas vehiculares [Tesis de licenciatura, Pontificia Universidad Católica del Perú]. Repositorio PUCP. https://repositorio.pucp.edu.pe/index/handle/123456789/163652
+
+Antecedente Local
+Azabache Medina, B. J., y Caruajulca Sánchez, J. L. D. (2019). Sistema web móvil de gestión de accesos del personal de la empresa TAL S.A utilizando ICONIX Scrumban y tecnología RFID [Tesis de grado, Universidad Privada Antenor Orrego]. Repositorio Institucional UPAO.
+Rol | Responsabilidad en la solución propuesta
+Administrador del sistema | Configura usuarios, puertas, horarios y perfiles de acceso desde la aplicación móvil; revoca credenciales perdidas.
+Desarrollador / Integrador IoT | Programa el nodo Arduino, la API REST, la base de datos y el broker MQTT; da mantenimiento al software.
+Encargado de mantenimiento | Revisa periódicamente el hardware instalado en la puerta (lector, cerradura, cableado, alimentación).
+Usuario final (encargado/propietario) | Otorga y revoca accesos temporales, abre la puerta de forma remota y consulta la bitácora desde la app.
+Componente | Función en el sistema
+Arduino Mega / UNO | Controlador principal del nodo instalado en la puerta.
+Módulo RFID/NFC MFRC522 | Lee el UID de la tarjeta o tag NFC del usuario (SPI).
+Módulo RTC DS3231 | Provee fecha y hora exacta de cada evento, incluso sin internet (I²C).
+Módulo relé | Activa/desactiva la cerradura eléctrica según la validación.
+Cerradura eléctrica (fail-safe) | Actuador físico que bloquea o libera la puerta.
+Módulo Wi-Fi (ESP8266/ESP32 o shield) | Envía los eventos del nodo al servidor por HTTPS.
+LED bicolor y buzzer | Indican de forma visual y sonora si el acceso fue autorizado o denegado.
+Componente | Función en el sistema
+Arduino IDE (C/C++) | Programación del firmware del nodo de la puerta.
+API REST (Node.js + Express) | Recibe eventos del nodo, valida credenciales y expone datos a la app móvil.
+Base de datos (MySQL / PostgreSQL) | Almacena usuarios, credenciales, puertas, horarios y bitácora de accesos.
+Broker MQTT (Mosquitto) | Publica órdenes de apertura remota hacia el nodo de la puerta.
+Aplicación móvil (Android – Kotlin / Flutter) | Permite gestionar usuarios, abrir la puerta y generar pases temporales.
+Firebase Cloud Messaging | Envía notificaciones push ante intentos fallidos o accesos denegados.
+Proveedor | Ítem que provee | Tipo
+Naylamp Mechatronics (Perú) | Arduino Mega/UNO, MFRC522, DS3231, módulo relé, LED, buzzer | Hardware nacional
+Electronilab (Colombia, envió a Perú) | Módulos RFID/NFC y componentes electrónicos alternativos | Hardware alternativo
+Mercado Libre Perú | Cerradura eléctrica fail-safe y fuente de alimentación | Hardware local
+Google Firebase | Servicio de notificaciones push (FCM) | Software / servicio cloud
+Proveedor de hosting (DigitalOcean / AWS) | Servidor donde corre la API, la base de datos y el broker MQTT | Servicio cloud
+Ítem | Cantidad | P. unitario (S/) | Subtotal (S/)
+Arduino Mega | 1 | 55.00 | 55.00
+Módulo RFID/NFC MFRC522 | 1 | 15.00 | 15.00
+Módulo RTC DS3231 | 1 | 12.00 | 12.00
+Módulo relé de 1 canal | 1 | 8.00 | 8.00
+Cerradura eléctrica fail-safe | 1 | 70.00 | 70.00
+Módulo Wi-Fi ESP8266 | 1 | 20.00 | 20.00
+LED, buzzer, cables y protoboard | 1 (kit) | 25.00 | 25.00
+Fuente de alimentación 12V | 1 | 20.00 | 20.00
+Ítem | Costo
+Hosting del servidor (API + BD + MQTT), mensual | S/ 25.00
+Firebase Cloud Messaging | Gratuito (plan Spark)
+Licencias de desarrollo (Arduino IDE, Android Studio) | Gratuito (open source)
+Rol | Horas estimadas | Costo/hora (S/) | Subtotal (S/)
+Desarrollador IoT (firmware + hardware) | 40 | 15.00 | 600.00
+Desarrollador backend (API, BD, MQTT) | 35 | 15.00 | 525.00
+Desarrollador móvil (app Android) | 30 | 15.00 | 450.00
+N° | Característica | Descripción / justificación
+1 | Autenticación electrónica (RFID/NFC) | Reemplaza la llave física por una credencial electrónica única e identificable.
+2 | Registro automático de accesos | Cada evento queda en bitácora con usuario, puerta, fecha y hora, sin intervención manual.
+3 | Revocación instantánea | Una credencial perdida se anula desde la app, sin cambiar la cerradura física.
+4 | Accesos temporales | Genera pases con vigencia definida para invitados, sin entregar una llave permanente.
+5 | Apertura remota | El encargado puede abrir la puerta desde la aplicación móvil sin estar presente.
+6 | Funcionamiento offline | El nodo valida contra una lista local si se pierde la conexión a internet.
+7 | Notificaciones push en tiempo real | Alerta al encargado ante accesos denegados o intentos fallidos repetidos.
+8 | Reportes exportables | Genera reportes en CSV/PDF filtrables por usuario, puerta o fecha.
+9 | Escalabilidad | El mismo esquema (nodo + API + app) puede replicarse a varias puertas sin rediseñar el sistema.
+Criterio | RFID 125 kHz (EM-18) | RFID/NFC 13.56 MHz (MFRC522) | Biométrico (huella dactilar)
+Costo aproximado | S/ 10 – 15 | S/ 15 – 20 | S/ 35 – 50
+Alcance de lectura | 5 – 10 cm | 3 – 7 cm | Contacto directo
+Seguridad | Baja (UID clonable) | Media-alta (soporta cifrado NFC) | Alta (biométrico único)
+Velocidad de lectura | Rápida | Rápida | Media (depende de calidad del sensor)
+Compatibilidad con app móvil (NFC del celular) | No | Sí (tags NFC estándar) | No aplica
+Facilidad de integración con Arduino | Alta | Alta (librería MFRC522.h) | Media (requiere librería adicional)
+Elección para el proyecto | Descartado | Seleccionado | Descartado (mayor costo, no requerido)

@@ -1,0 +1,177 @@
+
+--- PAGINA 1 ---
+ 
+UNIVERSIDAD NACIONAL DE TRUJILLO 
+ Dr. Ing. Gómez Avila José 
+LABORATORIO 05:  
+Obje�vo: Al ﬁnalizar el estudiante experimenta en un entorno controlado el manejo de servidor 
+remoto con los servicios más u�lizados en IOT y MQTT – MySQL / Docker. 
+Requerimientos: 
+- ISO Linux (cualquier distribución, la mejor opción una distribución liviana) 
+- Librerías de soporte Docker. 
+Fundamentación: 
+DOCKER 
+ 
+ 
+ 
+
+
+--- PAGINA 2 ---
+ 
+UNIVERSIDAD NACIONAL DE TRUJILLO 
+ Dr. Ing. Gómez Avila José 
+Secuencia de Preparación: 
+1. Se ha u�lizado la distribución Ubuntu como ejemplo. Se ha procedido a u�lizar a Oracle 
+virtualbox como medio pero lo ideal es u�lizar una instalación directa sin pasar po r el 
+Oracle virtualbox. 
+ 
+2. Se está presentando la posibilidad de contar con el servicio de acceso remoto con SSH 
+para acced er. 
+ 
+3. Existe numerosos servicios para escoger según la naturaleza de cada proyecto. 
+ 
+ 
+ 
+
+
+--- PAGINA 3 ---
+ 
+UNIVERSIDAD NACIONAL DE TRUJILLO 
+ Dr. Ing. Gómez Avila José 
+4. Comandos para iniciar el proceso de instalación Docker 
+ 
+- Actualizar Ubuntu 
+sudo apt update && sudo apt upgrade -y 
+ 
+- Instalar capa gráﬁca (OPCIONAL, no recomendada porque aumentaría el consumo de 
+disco) 
+sudo apt install xubuntu-desktop -y 
+ 
+- Instalar Docker en ubuntu (instalación de dependencias) 
+sudo apt install ca-cer�ﬁcates curl gnupg lsb-release -y 
+ 
+- Clave GPG oﬁcial de Docker: 
+sudo mkdir -p /etc/apt/keyrings 
+curl -fsSL htps://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o 
+/etc/apt/keyrings/docker.gpg 
+ 
+- Repositorio Docker: 
+echo \ 
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] \ 
+  htps://download.docker.com/linux/ubuntu \ 
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null 
+ 
+- Instalar Docker Engine, cli y contenedores 
+sudo apt update 
+sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-
+compose-plugin -y 
+ 
+- Veriﬁcando estado de Docker 
+sudo systemctl status Docker 
+ 
+- Deberá observar un estado de “Ac�ve” para asegurar la instalación. Si no es así 
+reu�lizar los comandos anteriores. 
+
+--- PAGINA 4 ---
+ 
+UNIVERSIDAD NACIONAL DE TRUJILLO 
+ Dr. Ing. Gómez Avila José 
+ 
+- Prueba de docker 
+sudo docker run hello-world 
+ 
+ 
+5. Uso de Docker con emqx y mysql 
+ 
+- Creamos una carpeta: 
+mkdir emqx_mysql_stack 
+cd emqx_mysql_stack 
+ 
+- Creamos el código: 
+nano docker-compose.yml 
+ 
+- El contenido del código es: 
+version: "3.9" 
+ 
+services: 
+  emqx: 
+    image: emqx/emqx:latest 
+    container_name: emqx 
+    restart: always 
+    ports: 
+      - "1883:1883" 
+      - "8083:8083" 
+      - "8084:8084" 
+      - "18083:18083" 
+
+
+--- PAGINA 5 ---
+ 
+UNIVERSIDAD NACIONAL DE TRUJILLO 
+ Dr. Ing. Gómez Avila José 
+    networks: 
+      - emqxnet 
+ 
+  mysql: 
+    image: mysql:8.0 
+    container_name: mysql 
+    restart: always 
+    environment: 
+      MYSQL_ROOT_PASSWORD: rootpass 
+      MYSQL_DATABASE: emqx_db 
+      MYSQL_USER: emqx_user 
+      MYSQL_PASSWORD: emqx_pass 
+    ports: 
+      - "3306:3306" 
+    volumes: 
+      - mysql_data:/var/lib/mysql 
+    networks: 
+      - emqxnet 
+ 
+  phpmyadmin: 
+    image: phpmyadmin/phpmyadmin:latest 
+    container_name: phpmyadmin 
+    restart: always 
+    environment: 
+      PMA_HOST: mysql 
+      PMA_USER: emqx_user 
+      PMA_PASSWORD: emqx_pass 
+    ports: 
+      - "8080:80" 
+    depends_on: 
+      - mysql 
+    networks: 
+      - emqxnet 
+ 
+networks: 
+  emqxnet: 
+    driver: bridge 
+ 
+volumes: 
+  mysql_data: 
+ 
+ 
+- Iniciar servicio docker 
+sudo systemctl start Docker 
+ 
+- Ejecutar Docker y descargar los servicios colocados en el código: 
+sudo docker compose up -d –build 
+ 
+- Reiniciar: 
+sudo reboot 
+ 
+
+--- PAGINA 6 ---
+ 
+UNIVERSIDAD NACIONAL DE TRUJILLO 
+ Dr. Ing. Gómez Avila José 
+ 
+Ejecutar en el navegador el phpmyadmin con el puerto 8080 y el servicio emqx con 1883. 
+ 
+Ac�vidad: 
+1. Implementación en el proyecto del protocolo mqt. 
+2. Redactar en menos de 50 palabras el componente inteligente en su propuesta. 
+3. Presentación del Modelo de Base de Datos Relacional y Modelo No Relacional asociada 
+al proyecto. 
+ 
+ 

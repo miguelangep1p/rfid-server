@@ -1,0 +1,162 @@
+
+--- PAGINA 1 ---
+ 
+UNIVERSIDAD NACIONAL DE TRUJILLO 
+ Dr. Ing. Gómez Avila José 
+LABORATORIO 08  
+Objetivo: Al finalizar el estudiante experimenta en un entorno controlado el manejo de servidor 
+remoto con los servicios más utilizados en IOT. 
+1. Requerimientos: 
+- Implementaciones realizadas en el laboratorio pasados. 
+- Máquina Virtual con Windows. 
+ 
+2. Intentamos ingresar al phpmyadmin del servidor 
+ 
+Debemos corregir nuestros accesos. 
+3. Desde la máquina anfitrión ingresamos con nuestro usuario “remoto” 
+ 
+ 
+Editar la línea asociada a la ruta de phpmyadmin 
+ 
+
+
+--- PAGINA 2 ---
+ 
+UNIVERSIDAD NACIONAL DE TRUJILLO 
+ Dr. Ing. Gómez Avila José 
+Cambiar la expresión “Require Local” a “Require all granted”. Guardar cambios. 
+ 
+ 
+4. Reiniciar servicio de apache 
+ 
+ 
+5. Asegurar que el servicio de MySQL este operativo. Luego  probamos el ingreso a 
+phpmyadmin y presenta otro impase. 
+ 
+
+
+--- PAGINA 3 ---
+ 
+UNIVERSIDAD NACIONAL DE TRUJILLO 
+ Dr. Ing. Gómez Avila José 
+Procedemos a realizar un análisis y vemos cambios a realizar en la configuración de mysql. 
+6. Buscamos el archivo my.ini y cambiamos los valores de bind -address de 127.0.0.1 a 
+0.0.0.0 
+ 
+Editamos con el mismo procedimiento que se realizó para el paso 3. 
+ 
+7. Restaurar el servicio de mysql e inicializarlos. 
+
+
+--- PAGINA 4 ---
+ 
+UNIVERSIDAD NACIONAL DE TRUJILLO 
+ Dr. Ing. Gómez Avila José 
+ 
+8. Probamos acceso al phpmyadmin 
+ 
+9. Creamos una base de datos nueva llam ada “laboratorio”. Luego ubicamos la dirección 
+electrónica: https://docs.emqx.io/en/broker/v4.3/advanced/acl-mysql.html#default-
+table-structure p ara crear tablas de mqtt_user y mqtt_acl .  
+ 
+
+
+--- PAGINA 5 ---
+ 
+UNIVERSIDAD NACIONAL DE TRUJILLO 
+ Dr. Ing. Gómez Avila José 
+ 
+ 
+10. Insertamos un usuario. 
+ 
+11. Iniciamos el emqx y ubicamos los plugins en especial el de mysql e intentamos iniciar. 
+
+
+--- PAGINA 6 ---
+ 
+UNIVERSIDAD NACIONAL DE TRUJILLO 
+ Dr. Ing. Gómez Avila José 
+ 
+Procederemos hacer cambios en la configuración del Mysql y Plugin. 
+12. Procedemos a agregar clave al superusuario. 
+ 
+ 
+La ejecución va implicar cambios en la configuración de phpmyadmin. 
+13. Regresamos a ubicar el archivo de configuración de phpmyadmin. 
+ 
+
+
+--- PAGINA 7 ---
+ 
+UNIVERSIDAD NACIONAL DE TRUJILLO 
+ Dr. Ing. Gómez Avila José 
+ 
+ 
+Ubicamos la línea con respecto al password y le agregamos la clave colocada en la sentencia 
+SQL. 
+ 
+ 
+Comprobamos nuevamente. Asegurar tanto para la ip como dominio localhost estén con la 
+clave. 
+
+
+--- PAGINA 8 ---
+ 
+UNIVERSIDAD NACIONAL DE TRUJILLO 
+ Dr. Ing. Gómez Avila José 
+ 
+ 
+14. Ubicamos el archivo de configuración del plugin mysql. 
+ 
+ 
+
+
+--- PAGINA 9 ---
+ 
+UNIVERSIDAD NACIONAL DE TRUJILLO 
+ Dr. Ing. Gómez Avila José 
+Modificamos las líneas de código referente al usuario, base y clave. 
+ 
+ 
+15. Ahora procedemos a dirigirnos al dashboard de emqx para iniciar el plugin. 
+ 
+ 
+16. Ahora vamos a editar el publicador y suscriptor. 
+
+
+--- PAGINA 10 ---
+ 
+UNIVERSIDAD NACIONAL DE TRUJILLO 
+ Dr. Ing. Gómez Avila José 
+ 
+
+
+--- PAGINA 11 ---
+ 
+UNIVERSIDAD NACIONAL DE TRUJILLO 
+ Dr. Ing. Gómez Avila José 
+ 
+Luego ejecutamos y tenemos problemas de conexión. Por tanto debemos acomodar nuestros 
+datos en la configuración del plugin. 
+
+
+--- PAGINA 12 ---
+ 
+UNIVERSIDAD NACIONAL DE TRUJILLO 
+ Dr. Ing. Gómez Avila José 
+ 
+17. Ubicamos el archivo de configuración. 
+ 
+Editamos el SQL para agregar el cliente de la tabla. 
+ 
+18. Comprobamos nuevamente la ejecución de la publicación y suscripción. Todo estará 
+conforme. 
+ 
+
+
+--- PAGINA 13 ---
+ 
+UNIVERSIDAD NACIONAL DE TRUJILLO 
+ Dr. Ing. Gómez Avila José 
+ 
+ 

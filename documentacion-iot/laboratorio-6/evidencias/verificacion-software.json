@@ -1,0 +1,80 @@
+{
+  "run_id": "f0d4806d-5ff1-4d37-bf07-c20f726998df",
+  "date_local": "2026-10-24",
+  "started_at": "2026-10-24T19:00:13.413Z",
+  "timezone": "America/Lima",
+  "mode": "Real EMQX/PostgreSQL; serial simulado; sin participantes",
+  "cases": [
+    {
+      "lab": 6,
+      "id": "L6-01",
+      "description": "Docker y motor Linux",
+      "status": "APROBADO",
+      "detail": "29.2.1\nlinux"
+    },
+    {
+      "lab": 6,
+      "id": "L6-02",
+      "description": "Contenedor hello-world",
+      "status": "APROBADO",
+      "detail": "Hello from Docker!\nThis message shows that your installation appears to be working correctly.\n\nTo generate this message, Docker took the following steps:\n 1. The Docker client contacted the Docker daemon.\n 2. The Docker daemon pulled the \"hello-world\" image from the Docker Hub.\n    (amd64)\n 3. The Docker daemon created a new container from that image which runs the\n    executable that produces the output you are currently reading.\n 4. The Docker daemon streamed that output to the Docker client, which sent it\n    to your terminal.\n\nTo try something more ambitious, you can run an Ubuntu container with:\n $ docker run -it ubuntu bash\n\nShare images, automate workflows, and more with a free Docker ID:\n https://hub.docker.com/\n\nFor more examples and ideas, visit:\n https://docs.docker.com/get-started/"
+    },
+    {
+      "lab": 6,
+      "id": "L6-03",
+      "description": "Servicios y versión EMQX",
+      "status": "APROBADO",
+      "detail": "asistencia-iot-labs-postgres-1 | Up 36 seconds (healthy)\nasistencia-iot-labs-emqx-1 | Up 27 minutes (healthy)\nNode 'emqx@broker.asistencia.local' 6.3.2 is started"
+    },
+    {
+      "lab": 6,
+      "id": "L6-04",
+      "description": "PostgreSQL y esquema aplicado",
+      "status": "APROBADO",
+      "detail": {
+        "version": "PostgreSQL 17.6 (Debian 17.6-2.pgdg13+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit",
+        "tables": [
+          {
+            "table_schema": "access_control",
+            "table_name": "cards"
+          },
+          {
+            "table_schema": "access_control",
+            "table_name": "commands"
+          },
+          {
+            "table_schema": "access_control",
+            "table_name": "events"
+          },
+          {
+            "table_schema": "access_control",
+            "table_name": "notifications"
+          },
+          {
+            "table_schema": "access_control",
+            "table_name": "permissions"
+          },
+          {
+            "table_schema": "mqtt_security",
+            "table_name": "mqtt_acl"
+          },
+          {
+            "table_schema": "mqtt_security",
+            "table_name": "mqtt_user"
+          }
+        ]
+      }
+    },
+    {
+      "lab": 6,
+      "id": "L6-05",
+      "description": "Validación del protocolo sin hardware",
+      "status": "APROBADO",
+      "detail": "TAP version 13\n# Subtest: Serial fragmentado, CRLF y recuperación tras trama sobredimensionada\nok 1 - Serial fragmentado, CRLF y recuperación tras trama sobredimensionada\n  ---\n  duration_ms: 4.4559\n  type: 'test'\n  ...\n# Subtest: Rechaza campos adicionales y UID no hexadecimal\nok 2 - Rechaza campos adicionales y UID no hexadecimal\n  ---\n  duration_ms: 0.3416\n  type: 'test'\n  ...\n# Subtest: No convierte comandos ambiguos ni índices de relé inválidos\nok 3 - No convierte comandos ambiguos ni índices de relé inválidos\n  ---\n  duration_ms: 0.5309\n  type: 'test'\n  ...\n# Subtest: Rechaza órdenes vencidas, futuras o de vigencia excesiva\nok 4 - Rechaza órdenes vencidas, futuras o de vigencia excesiva\n  ---\n  duration_ms: 0.2186\n  type: 'test'\n  ...\n# Subtest: Lecturas atrasadas no generan nuevas aperturas tras reconexión\nok 5 - Lecturas atrasadas no generan nuevas aperturas tras reconexión\n  ---\n  duration_ms: 0.3555\n  type: 'test'\n  ...\n1..5\n# tests 5\n# suites 0\n# pass 5\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 99.745"
+    }
+  ],
+  "traces": [],
+  "status": "APROBADO",
+  "cleanup": "Datos temporales de este UID de ensayo retirados.",
+  "finished_at": "2026-10-24T19:00:17.752Z"
+}

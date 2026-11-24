@@ -1,0 +1,109 @@
+{
+  "date_local": "2026-10-27",
+  "cases": [
+    {
+      "id": "P7-01",
+      "description": "API de datos exige sesión",
+      "status": "APROBADO",
+      "mode": "Servicios reales; serial simulado"
+    },
+    {
+      "id": "P7-02",
+      "description": "Sesión y estado del puente en Next.js",
+      "status": "APROBADO",
+      "mode": "Servicios reales; serial simulado"
+    },
+    {
+      "id": "P7-03",
+      "description": "Operaciones rechazan origen distinto al panel local",
+      "status": "APROBADO",
+      "mode": "Servicios reales; serial simulado"
+    },
+    {
+      "id": "P7-04",
+      "description": "Formulario crea solicitud de asistencia y permiso de tres horas desde inicio explícito",
+      "status": "APROBADO",
+      "mode": "Servicios reales; serial simulado"
+    },
+    {
+      "id": "P7-05",
+      "description": "Lectura desde la web recorre puente, MQTT y validación y vuelve al historial",
+      "status": "APROBADO",
+      "mode": "Servicios reales; serial simulado"
+    },
+    {
+      "id": "P7-14",
+      "description": "Enlace wa.me abre mensaje preparado; no envía ni confirma asistencia",
+      "status": "APROBADO",
+      "mode": "Servicios reales; serial simulado"
+    },
+    {
+      "id": "P7-16",
+      "description": "Recordatorio sonoro a partir del umbral sin repetirse en cada actualización",
+      "status": "APROBADO",
+      "mode": "Servicios reales; serial simulado"
+    },
+    {
+      "id": "P7-06",
+      "description": "Aviso visible y control de sonido habilitado; audibilidad física no medida",
+      "status": "APROBADO",
+      "mode": "Servicios reales; serial simulado"
+    },
+    {
+      "id": "P7-07",
+      "description": "Vista móvil sin desbordamiento horizontal",
+      "status": "APROBADO",
+      "mode": "Servicios reales; serial simulado"
+    },
+    {
+      "id": "P7-08",
+      "description": "Confirmación de recepción persiste sin atribuir asistencia realizada",
+      "status": "APROBADO",
+      "mode": "Servicios reales; serial simulado"
+    },
+    {
+      "id": "P7-11",
+      "description": "Recepción, aceptación, llegada y cierre persisten con agente e historial",
+      "status": "APROBADO",
+      "mode": "Servicios reales; serial simulado"
+    },
+    {
+      "id": "P7-12",
+      "description": "Exportación autenticada conserva historial completo",
+      "status": "APROBADO",
+      "mode": "Servicios reales; serial simulado"
+    },
+    {
+      "id": "P7-13",
+      "description": "Ayuda sin tarjeta, duplicado y cancelación conservan historial sin apertura ni reactivación",
+      "status": "APROBADO",
+      "mode": "Servicios reales; serial simulado"
+    },
+    {
+      "id": "P7-15",
+      "description": "Modales accesibles, melodía por Web Audio, permiso de escritorio simulado y centro de avisos",
+      "status": "APROBADO",
+      "mode": "Servicios reales; serial simulado"
+    },
+    {
+      "id": "P7-17",
+      "description": "Creación y cancelación desde modales con motivo obligatorio y cierre por Escape",
+      "status": "APROBADO",
+      "mode": "Servicios reales; serial simulado"
+    },
+    {
+      "id": "P7-09",
+      "description": "Orden manual autenticada ABRIR,2 llega al puente simulado",
+      "status": "APROBADO",
+      "mode": "Servicios reales; serial simulado"
+    },
+    {
+      "id": "P7-10",
+      "description": "Revocación desde API conserva el historial y deshabilita la credencial",
+      "status": "APROBADO",
+      "mode": "Servicios reales; serial simulado"
+    }
+  ],
+  "physical_hardware_tested": false,
+  "temporary_data_removed": true
+}

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Control de Acceso RFID</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', sans-serif; background: #0f172a; color: #e2e8f0; min-height: 100vh; }
+    header { background: #1e293b; padding: 1.2rem 2rem; display: flex; align-items: center; gap: 1rem; border-bottom: 1px solid #334155; }
+    header h1 { font-size: 1.3rem; font-weight: 600; }
+    .badge { background: #22c55e; color: #fff; font-size: 0.7rem; padding: 2px 8px; border-radius: 99px; }
+    main { max-width: 1100px; margin: 2rem auto; padding: 0 1rem; display: grid; gap: 1.5rem; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; }
+    .card { background: #1e293b; border-radius: 12px; padding: 1.2rem; border: 1px solid #334155; }
+    .card .label { font-size: 0.75rem; color: #94a3b8; margin-bottom: 0.4rem; }
+    .card .value { font-size: 2rem; font-weight: 700; }
+    .green { color: #22c55e; } .red { color: #ef4444; } .blue { color: #60a5fa; }
+    section { background: #1e293b; border-radius: 12px; border: 1px solid #334155; }
+    section h2 { padding: 1rem 1.5rem; font-size: 0.85rem; font-weight: 600; border-bottom: 1px solid #334155; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 0.75rem 1.5rem; text-align: left; font-size: 0.875rem; border-bottom: 1px solid #0f172a; }
+    th { color: #94a3b8; font-weight: 500; }
+    tr:last-child td { border: none; }
+    .pill { display: inline-block; padding: 2px 10px; border-radius: 99px; font-size: 0.75rem; font-weight: 600; }
+    .pill.ok { background: #14532d; color: #22c55e; }
+    .pill.no { background: #450a0a; color: #ef4444; }
+    .uid { font-family: monospace; color: #60a5fa; }
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.5rem; padding: 1rem 1.5rem; }
+    input, select { background: #0f172a; border: 1px solid #334155; color: #e2e8f0; padding: 0.5rem 0.75rem; border-radius: 8px; font-size: 0.875rem; }
+    input:focus, select:focus { outline: none; border-color: #60a5fa; }
+    .btn { padding: 0.55rem 1.2rem; border-radius: 8px; border: none; font-size: 0.875rem; font-weight: 600; cursor: pointer; transition: opacity 0.2s; }
+    .btn:hover { opacity: 0.85; }
+    .btn-blue { background: #2563eb; color: #fff; }
+    .btn-green { background: #16a34a; color: #fff; }
+    .btn-red { background: #dc2626; color: #fff; }
+    .btn-orange { background: #ea580c; color: #fff; }
+    .btn-block { width: 100%; padding: 0.75rem; font-size: 1rem; margin-top: 0.25rem; }
+    .row { display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: flex-end; }
+    .msg { padding: 0.4rem 0; font-size: 0.8rem; color: #22c55e; min-height: 1.5rem; }
+    .msg.err { color: #ef4444; }
+    label { font-size: 0.75rem; color: #94a3b8; }
+    @media (max-width: 640px) { .grid2 { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<header>
+  <span>🔐</span>
+  <h1>Control de Acceso RFID</h1>
+  <span class="badge">● EN VIVO</span>
+</header>
+
+<main>
+
+  <!-- Estadísticas -->
+  <div class="cards">
+    <div class="card"><div class="label">Total accesos</div><div class="value blue"  id="total">–</div></div>
+    <div class="card"><div class="label">Concedidos</div>  <div class="value green" id="concedidos">–</div></div>
+    <div class="card"><div class="label">Denegados</div>   <div class="value red"   id="denegados">–</div></div>
+  </div>
+
+  <!-- Acceso remoto -->
+  <section>
+    <h2>🚪 Acceso Remoto</h2>
+    <div class="form-group">
+      <p style="font-size:0.85rem;color:#94a3b8;margin-bottom:0.5rem">
+        Abre la cerradura de cada usuario directamente desde aquí.
+      </p>
+      <div class="row">
+        <button class="btn btn-green btn-block" style="flex:1" onclick="abrirRemoto(1)">⚡ Abrir Relay 1 — Sebastian</button>
+        <button class="btn btn-blue  btn-block" style="flex:1" onclick="abrirRemoto(2)">⚡ Abrir Relay 2 — Miguel Angel</button>
+      </div>
+      <div class="msg" id="msg-remoto"></div>
+    </div>
+  </section>
+
+  <div class="grid2">
+
+    <!-- Agregar usuario -->
+    <section>
+      <h2>➕ Agregar Usuario</h2>
+      <div class="form-group">
+        <label>UID de la tarjeta</label>
+        <input id="new-uid"    placeholder="Ej: A1B2C3D4">
+        <label>Nombre</label>
+        <input id="new-nombre" placeholder="Nombre del usuario">
+        <label>Relay asignado</label>
+        <select id="new-relay">
+          <option value="1">Relay 1 — Sebastian</option>
+          <option value="2">Relay 2 — Miguel Angel</option>
+        </select>
+        <button class="btn btn-blue btn-block" onclick="agregarUsuario()">Agregar Usuario</button>
+        <div class="msg" id="msg-agregar"></div>
+      </div>
+    </section>
+
+    <!-- Pase temporal -->
+    <section>
+      <h2>⏱ Pase Temporal</h2>
+      <div class="form-group">
+        <label>UID de la tarjeta</label>
+        <input id="temp-uid"    placeholder="Ej: A1B2C3D4">
+        <label>Nombre</label>
+        <input id="temp-nombre" placeholder="Nombre">
+        <label>Duración (horas)</label>
+        <input id="temp-horas"  type="number" placeholder="Ej: 2" min="1">
+        <label>Relay asignado</label>
+        <select id="temp-relay">
+          <option value="1">Relay 1 — Sebastian</option>
+          <option value="2">Relay 2 — Miguel Angel</option>
+        </select>
+        <button class="btn btn-orange btn-block" onclick="generarPase()">Generar Pase Temporal</button>
+        <div class="msg" id="msg-pase"></div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Usuarios activos -->
+  <section>
+    <h2>👥 Usuarios con Acceso</h2>
+    <table>
+      <thead>
+        <tr><th>UID</th><th>Nombre</th><th>Relay</th><th>Expira</th><th>Acción</th></tr>
+      </thead>
+      <tbody id="tabla-usuarios"></tbody>
+    </table>
+  </section>
+
+  <!-- Historial -->
+  <section>
+    <h2>📋 Historial de Accesos</h2>
+    <table>
+      <thead>
+        <tr><th>#</th><th>UID</th><th>Nombre</th><th>Fecha / Hora</th><th>Resultado</th></tr>
+      </thead>
+      <tbody id="tabla-accesos"></tbody>
+    </table>
+  </section>
+
+</main>
+
+<script>
+  async function cargarAccesos() {
+    const res  = await fetch('/api/accesos');
+    const data = await res.json();
+    document.getElementById('total').textContent       = data.length;
+    document.getElementById('concedidos').textContent  = data.filter(d => d.resultado === 'CONCEDIDO').length;
+    document.getElementById('denegados').textContent   = data.filter(d => d.resultado === 'DENEGADO').length;
+    document.getElementById('tabla-accesos').innerHTML = data.map(r => `
+      <tr>
+        <td>${r.id}</td>
+        <td class="uid">${r.uid}</td>
+        <td>${r.nombre}</td>
+        <td>${r.timestamp}</td>
+        <td><span class="pill ${r.resultado === 'CONCEDIDO' ? 'ok' : 'no'}">${r.resultado}</span></td>
+      </tr>`).join('');
+  }
+
+  async function cargarUsuarios() {
+    const res  = await fetch('/api/usuarios');
+    const data = await res.json();
+    document.getElementById('tabla-usuarios').innerHTML = data.map(u => `
+      <tr>
+        <td class="uid">${u.uid}</td>
+        <td>${u.nombre}</td>
+        <td><span class="pill ok">Relay ${u.relay}</span></td>
+        <td style="color:#94a3b8">${u.expira ? u.expira : '♾ Permanente'}</td>
+        <td>
+          <button class="btn btn-red" style="padding:2px 10px;font-size:0.75rem"
+            onclick="revocar('${u.uid}')">Revocar</button>
+        </td>
+      </tr>`).join('');
+  }
+
+  async function abrirRemoto(relay) {
+    const msg = document.getElementById('msg-remoto');
+    msg.className = 'msg';
+    msg.textContent = 'Enviando comando...';
+    const res  = await fetch('/api/abrir', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ relay })
+    });
+    const data = await res.json();
+    msg.textContent = data.ok ? `✅ Relay ${relay} abierto por 3 segundos` : '❌ ' + data.error;
+    if (!data.ok) msg.className = 'msg err';
+    cargarAccesos();
+  }
+
+  async function agregarUsuario() {
+    const uid    = document.getElementById('new-uid').value.trim().toUpperCase();
+    const nombre = document.getElementById('new-nombre').value.trim();
+    const relay  = document.getElementById('new-relay').value;
+    const msg    = document.getElementById('msg-agregar');
+    if (!uid || !nombre) { msg.className = 'msg err'; msg.textContent = 'Completa todos los campos'; return; }
+    const res  = await fetch('/api/usuarios', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ uid, nombre, relay })
+    });
+    const data = await res.json();
+    msg.className = 'msg';
+    msg.textContent = data.ok ? `✅ ${nombre} agregado en Relay ${relay}` : '❌ Error';
+    document.getElementById('new-uid').value = '';
+    document.getElementById('new-nombre').value = '';
+    cargarUsuarios();
+  }
+
+  async function generarPase() {
+    const uid    = document.getElementById('temp-uid').value.trim().toUpperCase();
+    const nombre = document.getElementById('temp-nombre').value.trim();
+    const horas  = document.getElementById('temp-horas').value;
+    const relay  = document.getElementById('temp-relay').value;
+    const msg    = document.getElementById('msg-pase');
+    if (!uid || !nombre || !horas) { msg.className = 'msg err'; msg.textContent = 'Completa todos los campos'; return; }
+    const res  = await fetch('/api/pase-temporal', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ uid, nombre, horas, relay })
+    });
+    const data = await res.json();
+    msg.className = 'msg';
+    msg.textContent = data.ok ? `✅ Pase de ${horas}h para ${nombre} en Relay ${relay}` : '❌ Error';
+    document.getElementById('temp-uid').value    = '';
+    document.getElementById('temp-nombre').value = '';
+    document.getElementById('temp-horas').value  = '';
+    cargarUsuarios();
+  }
+
+  async function revocar(uid) {
+    if (!confirm(`¿Revocar acceso a ${uid}?`)) return;
+    await fetch(`/api/usuarios/${uid}`, { method: 'DELETE' });
+    cargarUsuarios();
+    cargarAccesos();
+  }
+
+  cargarAccesos();
+  cargarUsuarios();
+  setInterval(() => { cargarAccesos(); cargarUsuarios(); }, 3000);
+</script>
+
+</body>
+</html>

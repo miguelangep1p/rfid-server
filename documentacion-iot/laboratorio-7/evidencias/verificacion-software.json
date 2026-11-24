@@ -1,0 +1,122 @@
+{
+  "run_id": "f0d4806d-5ff1-4d37-bf07-c20f726998df",
+  "date_local": "2026-10-24",
+  "started_at": "2026-10-24T19:00:13.413Z",
+  "timezone": "America/Lima",
+  "mode": "Real EMQX/PostgreSQL; serial simulado; sin participantes",
+  "cases": [
+    {
+      "lab": 7,
+      "id": "L7-01",
+      "description": "MQTT sobre WebSocket en listener 8083",
+      "status": "APROBADO",
+      "detail": {
+        "topic": "asistencia/v1/seguridad/avisos",
+        "payload": {
+          "type": "ensayo_websocket",
+          "run_id": "f0d4806d-5ff1-4d37-bf07-c20f726998df"
+        },
+        "received": true
+      }
+    },
+    {
+      "lab": 7,
+      "id": "L7-02",
+      "description": "Flujo serial simulado a MQTT, decisión y aviso",
+      "status": "APROBADO",
+      "detail": {
+        "notification_id": "69dafa35-4095-4cdb-b5a0-c613ecb2c900",
+        "event_id": "aca8b54e-79e4-41b9-9051-8729adc99a46",
+        "location": "entrada-01",
+        "type": "asistencia_solicitada",
+        "message": "Se requiere apoyo en el ingreso",
+        "channel": "mqtt_y_panel_web",
+        "decision": "CONCEDIDO"
+      }
+    },
+    {
+      "lab": 7,
+      "id": "L7-03",
+      "description": "Registro de comando simulado para relé 2",
+      "status": "APROBADO",
+      "detail": {
+        "command_id": "4bf60fe1-e0f5-4d73-b525-149ceed3c245",
+        "payload": {
+          "relay": 2,
+          "action": "CONCEDIDO",
+          "event_id": "aca8b54e-79e4-41b9-9051-8729adc99a46",
+          "device_id": "entrada-01",
+          "issued_at": "2026-10-24T19:00:17.222Z",
+          "command_id": "4bf60fe1-e0f5-4d73-b525-149ceed3c245",
+          "expires_at": "2026-10-24T19:00:22.222Z"
+        },
+        "status": "simulated",
+        "result": {
+          "status": "simulated",
+          "event_id": "aca8b54e-79e4-41b9-9051-8729adc99a46",
+          "device_id": "entrada-01",
+          "command_id": "4bf60fe1-e0f5-4d73-b525-149ceed3c245",
+          "physical_open": null
+        }
+      }
+    },
+    {
+      "lab": 7,
+      "id": "L7-04",
+      "description": "Evento duplicado no crea nueva orden",
+      "status": "APROBADO",
+      "detail": {
+        "commands": 1
+      }
+    },
+    {
+      "lab": 7,
+      "id": "L7-05",
+      "description": "Publicador independiente y tarjeta desconocida sin comando",
+      "status": "APROBADO",
+      "detail": {
+        "publisher_payload": {
+          "schema": 1,
+          "event_id": "50a80329-eb8e-4740-b0f8-a00b2e5e9b5a",
+          "device_id": "entrada-01",
+          "uid": "18E4CE516561BB7F",
+          "device_time_raw": "ensayo_publicador",
+          "received_at": "2026-10-24T19:00:17.626Z"
+        },
+        "decision": "DENEGADO",
+        "commands": 0
+      }
+    },
+    {
+      "lab": 7,
+      "id": "L7-06",
+      "description": "Comando vencido rechazado por protocolo",
+      "status": "APROBADO",
+      "detail": "No se escribe al serial; comprobación de parser, no medición física."
+    },
+    {
+      "lab": 7,
+      "id": "L7-07",
+      "description": "Registro del extremo serial simulado",
+      "status": "APROBADO",
+      "detail": "BRIDGE_STATE {\"connected\":true,\"simulated\":true}\nPuente preparado (SIMULADO), dispositivo entrada-01\n[SIMULADO, sin apertura física] CONCEDIDO,2\n"
+    }
+  ],
+  "traces": [
+    {
+      "kind": "notification",
+      "value": {
+        "notification_id": "69dafa35-4095-4cdb-b5a0-c613ecb2c900",
+        "event_id": "aca8b54e-79e4-41b9-9051-8729adc99a46",
+        "location": "entrada-01",
+        "type": "asistencia_solicitada",
+        "message": "Se requiere apoyo en el ingreso",
+        "channel": "mqtt_y_panel_web",
+        "decision": "CONCEDIDO"
+      }
+    }
+  ],
+  "status": "APROBADO",
+  "cleanup": "Datos temporales de este UID de ensayo retirados.",
+  "finished_at": "2026-10-24T19:00:17.752Z"
+}

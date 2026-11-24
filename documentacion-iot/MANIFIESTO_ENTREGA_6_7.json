@@ -1,0 +1,267 @@
+{
+  "date_local": "2026-10-24",
+  "run_id": "f0d4806d-5ff1-4d37-bf07-c20f726998df",
+  "scope": "Software real; serial simulado; sin verificación física",
+  "files": [
+    {
+      "path": "documentacion-iot/laboratorio-6/compose.yaml",
+      "sha256": "d2a65f5b328b13b3b6a7330ef3ac72466bfa86d9b2cfded662058522b73ad187"
+    },
+    {
+      "path": "documentacion-iot/laboratorio-6/DESARROLLO.md",
+      "sha256": "89f451cd4b7fa68cbbfef3aaf58e50990d2192885d0e88046b2e8b6387e96708"
+    },
+    {
+      "path": "documentacion-iot/laboratorio-6/GUIA_ORIGINAL.pdf",
+      "sha256": "3623b6bbce05eddfc1954edb15b71688589b2c03c85ff329468f1cf199d3d75a"
+    },
+    {
+      "path": "documentacion-iot/laboratorio-6/GUIA_TEXTO.txt",
+      "sha256": "b37635d2b2aeae284eee1f81da11607dc100daa78acb4be66c29c6d6ea020fb1"
+    },
+    {
+      "path": "documentacion-iot/laboratorio-6/INFORME_LABORATORIO_6.docx",
+      "sha256": "c2e6c7079f035dcb12c7ec7bcb18dd42dcf6bf478f7fc1e0fe1f7b414df6a92d"
+    },
+    {
+      "path": "documentacion-iot/laboratorio-6/INFORME_LABORATORIO_6.pdf",
+      "sha256": "e5b96019700c120c5c67f91bf8ea276cec1b97d905c818b3e7af7724857a4d3e"
+    },
+    {
+      "path": "documentacion-iot/laboratorio-6/modelo-no-relacional.json",
+      "sha256": "74d22fe32d257b33b821999fa1a82be20828c605057216bc6dfcc3193cf671cb"
+    },
+    {
+      "path": "documentacion-iot/laboratorio-6/README.md",
+      "sha256": "a3888bd878f038296f1cb870a3649e96ccb0b73b8a3ec54d3a6ab6781768eafe"
+    },
+    {
+      "path": "documentacion-iot/laboratorio-6/resultados_pruebas.csv",
+      "sha256": "461a18e7c741bef3c2fbfa73ebe09039af94acc6f443a9b9ae4580a678a0b884"
+    },
+    {
+      "path": "documentacion-iot/laboratorio-6/resultados_software.csv",
+      "sha256": "078f860dcab6cd960fc3023372c20fe04ef9c89820809493222fef9cc14768d4"
+    },
+    {
+      "path": "documentacion-iot/laboratorio-6/setup.cjs",
+      "sha256": "6f6ae9ee2d76d7a54725b19e6484e24ccdbfa29c492578d5b65ff8163fbf2adc"
+    },
+    {
+      "path": "documentacion-iot/laboratorio-6/evidencias/emqx-dashboard.png",
+      "sha256": "49c2bedabe87063aea408b73d1c1576b000a721711aa63d2b65b2390b530af8c"
+    },
+    {
+      "path": "documentacion-iot/laboratorio-6/evidencias/lab8-sin-cambios.json",
+      "sha256": "2db2b6b764832b35be36b87ff0fcd231af0ffc94f5db1239a73524ff397ccd12"
+    },
+    {
+      "path": "documentacion-iot/laboratorio-6/evidencias/README.md",
+      "sha256": "9f221a91fdcaa11583a279a15e0482a9e847c311cc787e4693045b0125f46134"
+    },
+    {
+      "path": "documentacion-iot/laboratorio-6/evidencias/verificacion-software.json",
+      "sha256": "6e98d65e726eae65dcac6549b4820fa66e82edbce587ea6f52c579131d41e51b"
+    },
+    {
+      "path": "documentacion-iot/laboratorio-6/figuras/arquitectura.png",
+      "sha256": "3fb8a8fe13729b5cff09d5e94bde947ddad3620cc3c6e4f996a669d9f4e92717"
+    },
+    {
+      "path": "documentacion-iot/laboratorio-6/figuras/modelo-relacional.png",
+      "sha256": "57117e0a6d4e21edc971dcdc072d70c355cc73c9404af528300e55d417632a66"
+    },
+    {
+      "path": "documentacion-iot/laboratorio-6/infra/schema.sql",
+      "sha256": "31b19c9af317f57cb8116a943a3b20f209109c177d46840caa3e591bb2a8fe09"
+    },
+    {
+      "path": "documentacion-iot/laboratorio-7/DESARROLLO.md",
+      "sha256": "4d727fd48b8c7f283e233a0d55465a0a0e2e2dd6556cb0de20763f31d8708f45"
+    },
+    {
+      "path": "documentacion-iot/laboratorio-7/GUIA_ORIGINAL.pdf",
+      "sha256": "261612cd00b777120ca41e9dd3544571ac498fa8a8cf46d855be62b3dce5486a"
+    },
+    {
+      "path": "documentacion-iot/laboratorio-7/GUIA_TEXTO.txt",
+      "sha256": "68c978037d280dfb1ee2da44099053f566879c175ce6c067ef9e31cd065bd5f9"
+    },
+    {
+      "path": "documentacion-iot/laboratorio-7/INFORME_LABORATORIO_7.docx",
+      "sha256": "0621622ce7f80b1c52e79f4284a3f12cd85403887638cd34edbedbd36825a656"
+    },
+    {
+      "path": "documentacion-iot/laboratorio-7/INFORME_LABORATORIO_7.pdf",
+      "sha256": "c8abefd3603c55738415acea37b897e88d9394f85fcf8d32a33c4f06ab5f1a9b"
+    },
+    {
+      "path": "documentacion-iot/laboratorio-7/panel-server.cjs",
+      "sha256": "dce17dc84c847e45f0d77e4aa5c43363ac2169df1a97df8913dbc243f957d381"
+    },
+    {
+      "path": "documentacion-iot/laboratorio-7/panel-setup.cjs",
+      "sha256": "6bc777ae6eae774347d3973709cbe15547bc1d79307598348dfb02d7735011ff"
+    },
+    {
+      "path": "documentacion-iot/laboratorio-7/PANEL.md",
+      "sha256": "36b260a4906afd7fa207036755a0164e69a66b4ebea99039e3917a09ecb8be82"
+    },
+    {
+      "path": "documentacion-iot/laboratorio-7/publicacion.cjs",
+      "sha256": "613ff423072b934b21b79791273d79c86e12a13099abc6c987690742aed47e13"
+    },
+    {
+      "path": "documentacion-iot/laboratorio-7/README.md",
+      "sha256": "c9dfbdab66ff807de508536d4f1c7717eb3d527abb7894622d9a4681edf39fe0"
+    },
+    {
+      "path": "documentacion-iot/laboratorio-7/resultados_pruebas.csv",
+      "sha256": "461a18e7c741bef3c2fbfa73ebe09039af94acc6f443a9b9ae4580a678a0b884"
+    },
+    {
+      "path": "documentacion-iot/laboratorio-7/resultados_software.csv",
+      "sha256": "14e883c6fb097b2e8c751323b3961ff6fb7c97aeb45b8e211312de8d89235816"
+    },
+    {
+      "path": "documentacion-iot/laboratorio-7/suscripcion.cjs",
+      "sha256": "73b0f0aa685ddb2d57c92632f235369b69c3ecab0d062b40f25f6f77841a51f9"
+    },
+    {
+      "path": "documentacion-iot/laboratorio-7/test-live.cjs",
+      "sha256": "89b74adbf5c4185cd0a60b228cdea239016150ac5067a0a62959424b0bb2b61c"
+    },
+    {
+      "path": "documentacion-iot/laboratorio-7/test-panel.cjs",
+      "sha256": "37fa044ba3b5a69f247229fd42dbd76f116cadc24f41f0efe430d69527e51f72"
+    },
+    {
+      "path": "documentacion-iot/laboratorio-7/evidencias/emqx-clients.png",
+      "sha256": "bfe7e2683cc4720b6fad74abc224bb9c93738ae8f3bd3e28f43461190dd0bc26"
+    },
+    {
+      "path": "documentacion-iot/laboratorio-7/evidencias/emqx-listeners.png",
+      "sha256": "098c4c51b61a153191f2b144d4d2e04baefb478d2f0648e9fe2afded46fc818a"
+    },
+    {
+      "path": "documentacion-iot/laboratorio-7/evidencias/panel-verificacion.json",
+      "sha256": "964a466354ce0d6bcd07bdfbc263edfdf13a9b03c9e25957d194e3e366048736"
+    },
+    {
+      "path": "documentacion-iot/laboratorio-7/evidencias/panel-web-desktop.png",
+      "sha256": "9a1189eb70a8fdf7b233849a16e509d0976ca4eec92f4d535d4f7738e09384c7"
+    },
+    {
+      "path": "documentacion-iot/laboratorio-7/evidencias/panel-web-mobile.png",
+      "sha256": "10b53fed0fa0f31bb2488b76756b7f7c03b3adf2e9bd8f7ff75e3644873f6729"
+    },
+    {
+      "path": "documentacion-iot/laboratorio-7/evidencias/README.md",
+      "sha256": "094ed816a91c22d0a9e37fec556db921b6d2b476ccb69518d43f1f27d1d4b200"
+    },
+    {
+      "path": "documentacion-iot/laboratorio-7/evidencias/verificacion-software.json",
+      "sha256": "fb81cc7a08e61b620e6761645c78496f7c44485f08a24c046397a1dced66fb85"
+    },
+    {
+      "path": "documentacion-iot/laboratorio-7/src/bridge.cjs",
+      "sha256": "913495b6aac67bde66540967e32cd5338d72c8af0eed16e67979a5512edb7236"
+    },
+    {
+      "path": "documentacion-iot/laboratorio-7/src/client.cjs",
+      "sha256": "1b8572267d05d078cc68c0739bca64172718898434028c6df67866e0b6e468f7"
+    },
+    {
+      "path": "documentacion-iot/laboratorio-7/src/create-card.cjs",
+      "sha256": "5b444529fccc118e9c59866c33fc28eea40ac9ac88698360f02a317bd4b3039b"
+    },
+    {
+      "path": "documentacion-iot/laboratorio-7/src/observer.cjs",
+      "sha256": "8fa07b7c551f8e33f064f6f4648b08e38ddd08ac9219653b3bcd7dfe8e9dc196"
+    },
+    {
+      "path": "documentacion-iot/laboratorio-7/src/protocol.cjs",
+      "sha256": "4bcbdf612e5a6446e2e9a2b80702cf6cac5fbd787409c485dd7eb4261558c88d"
+    },
+    {
+      "path": "documentacion-iot/laboratorio-7/src/repository.cjs",
+      "sha256": "a92886be96981918257eee06b0d258c6d021712180c0f02c618d442db0401755"
+    },
+    {
+      "path": "documentacion-iot/laboratorio-7/src/validator.cjs",
+      "sha256": "4f976041efc1c295be3621e0eba8762b0a31876bb13c4d911db39adcb58b411b"
+    },
+    {
+      "path": "documentacion-iot/ENTREGA_6_7.md",
+      "sha256": "639e3d78d95dd41e0068f24db8b3f13e579f240bbfb8030acd7a679109004b7a"
+    },
+    {
+      "path": "documentacion-iot/IMPLEMENTACION.md",
+      "sha256": "e1136d61f34c954a7ff7da23d4797e2adabd466fb40135720815d032dfbad012"
+    },
+    {
+      "path": "documentacion-iot/verificar-laboratorios.cjs",
+      "sha256": "ec41ba490fb29e56e6206bdba7c554d7c7b551914967b05c0a0857fb803279a8"
+    },
+    {
+      "path": "documentacion-iot/capturar-emqx.cjs",
+      "sha256": "198af4f7dbe7bbd454e0d1cb4590804afe57abd024b34beca6b833ecfb22c8dc"
+    },
+    {
+      "path": "documentacion-iot/generar_entregas.py",
+      "sha256": "a585a8ca781ea5e60ea5140bdfd12036652e470955ea7a9c565cb3b639421899"
+    },
+    {
+      "path": "package.json",
+      "sha256": "1ff1f3c2ccc094990f54c82b0dad9f52ac96be9ab29e993ecf0f87e7fe74a9c2"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "938d9f0ab6a1129815c71347f830e9a5bdcf9023590416bcaa654354ecbe33ff"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "481b60d1fd795300779336c5477ac7056bb1cd88cc042d9c179cd9d5c724d8a2"
+    },
+    {
+      "path": "tests/iot-live.cjs",
+      "sha256": "8e1a7ed3ee338b3b0bf01d410f22905e4cb9022062d7743d295565dca0944fa9"
+    },
+    {
+      "path": "tests/iot-panel.cjs",
+      "sha256": "2ab6cbf1cffdec3df2a043c186f567f95f6c338a2babd7bc2af6735b61f1cbcd"
+    },
+    {
+      "path": "tests/iot-protocol.cjs",
+      "sha256": "3d2233b3867451eb33de703404b7d8bb992859d731815ef8e392a45ee29e6976"
+    },
+    {
+      "path": "app/globals.css",
+      "sha256": "6d1376409ec936dc2cab25268c9c90bea164546d886952ab54eb0840a0958857"
+    },
+    {
+      "path": "app/layout.js",
+      "sha256": "e45079668b945564150d0e82f2e59458fa3ef5f0b4aa76bbb68204811d878c32"
+    },
+    {
+      "path": "app/page.js",
+      "sha256": "321f87914837de4ac2999e0f2f947521a1b858c4bb9be2306dba0bc23d8f00b5"
+    },
+    {
+      "path": "app/laboratorios/page.js",
+      "sha256": "d36288f3767384dc337dd7ef9d26b80cfa3b16d464b615027c505d54b246bdb8"
+    },
+    {
+      "path": "app/laboratorios/panel.module.css",
+      "sha256": "96241b7c21f08080f8092673e46e7ffeb96e44be4c8ef8fc19ab4c89c6ff4225"
+    },
+    {
+      "path": "server.js",
+      "sha256": "91930ede0715e688cb5ec8019f832eadf5f86c5a1b39d67e4440a7eb5c56d1a8"
+    },
+    {
+      "path": "next.config.js",
+      "sha256": "0ccd349a90e33669dfee7d778ba59e69aa3ae950a7fba6a4cb54cf79137aee99"
+    }
+  ]
+}
